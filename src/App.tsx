@@ -11,7 +11,6 @@ import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { CheckoutModal } from "@/components/CheckoutModal";
-import { LiveSalesNotification } from "@/components/LiveSalesNotification";
 import { FloatingCta } from "@/components/FloatingCta";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Toaster } from "sonner";
@@ -26,7 +25,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070709] text-white flex flex-col antialiased">
+    <div className="min-h-screen bg-[#070709] text-white flex flex-col antialiased pb-16 sm:pb-0">
       <TopTicker />
       <Header onOpenCheckout={handleOpenCheckout} />
       <main className="flex-1">
@@ -46,7 +45,6 @@ export function App() {
         onClose={() => setIsCheckoutOpen(false)}
         selectedPlan={selectedPlan}
       />
-      <LiveSalesNotification />
       <FloatingCta onOpenCheckout={handleOpenCheckout} />
       <ScrollToTop />
       <Toaster position="top-right" richColors />

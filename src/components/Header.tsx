@@ -29,31 +29,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check on mount
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-[#070709]/85 backdrop-blur-xl transition-all">
-      <div className="container flex h-20 items-center justify-between px-4 md:px-8 max-w-7xl mx-auto">
+    <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-[#070709]/90 backdrop-blur-xl transition-all">
+      <div className="container flex h-16 sm:h-20 items-center justify-between px-3 sm:px-6 md:px-8 max-w-7xl mx-auto">
         {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-lg shadow-red-600/40 group-hover:scale-105 transition-transform duration-300">
-            <Zap className="h-6 w-6 fill-current animate-pulse" />
+        <a href="#" className="flex items-center gap-2.5 group">
+          <div className="relative flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-brand-gradient text-white shadow-lg shadow-red-600/40 group-hover:scale-105 transition-transform duration-300">
+            <Zap className="h-5 w-5 sm:h-6 sm:w-6 fill-current animate-pulse" />
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold font-space text-2xl tracking-tight text-white leading-none">
+            <span className="font-extrabold font-space text-lg sm:text-2xl tracking-tight text-white leading-none">
               Loja<span className="text-red-500">Pod</span>
             </span>
-            <span className="text-[10px] text-zinc-400 font-mono font-medium tracking-wider uppercase mt-1 flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping inline-block" />
-              CONVERSÃO MÁXIMA 2026
+            <span className="text-[9px] sm:text-[10px] text-zinc-400 font-mono font-medium tracking-wider uppercase mt-0.5 sm:mt-1 flex items-center gap-1">
+              <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-500 animate-ping inline-block" />
+              SISTEMA V2.5
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation with Active Indicator */}
-        <nav className="hidden md:flex items-center gap-2 text-sm font-semibold text-zinc-300">
+        <nav className="hidden lg:flex items-center gap-2 text-sm font-semibold text-zinc-300">
           <a
             href="#recursos"
             className={`px-3 py-1.5 rounded-xl transition-all ${
@@ -114,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
         </nav>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <a 
             href={import.meta.env.VITE_ADMIN_URL || "http://localhost:5174"} 
             target="_blank" 
@@ -122,19 +122,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
             className="hidden sm:inline-flex"
           >
             <Button variant="ghost" size="sm" className="font-semibold text-zinc-300 hover:text-white hover:bg-white/10 rounded-xl gap-1.5">
-              <span>Painel Admin</span>
+              <span>Admin</span>
               <ExternalLink className="h-3.5 w-3.5 opacity-70" />
             </Button>
           </a>
           <Button 
             variant="gradient" 
-            size="default" 
+            size="sm" 
             onClick={() => onOpenCheckout("mensal")}
-            className="gap-2 font-extrabold shadow-xl shadow-red-600/30 rounded-xl hover:scale-105 transition-all duration-300 bg-gradient-to-r from-red-600 to-red-500 text-white border-0"
+            className="gap-1.5 font-extrabold shadow-lg shadow-red-600/30 rounded-xl bg-gradient-to-r from-red-600 to-red-500 text-white border-0 px-3.5 sm:px-5 text-xs sm:text-sm h-9 sm:h-11"
           >
-            <Sparkles className="h-4 w-4" />
-            <span>Assinar Plano Mensal</span>
-            <ArrowRight className="h-4 w-4" />
+            <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            <span>Assinar Mensal</span>
+            <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </Button>
         </div>
       </div>
