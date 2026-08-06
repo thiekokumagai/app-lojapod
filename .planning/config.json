@@ -1,0 +1,8 @@
+{
+  "mode": "interactive",
+  "depth": "standard",
+  "workflow": {
+    "auto_plan": false,
+    "require_approval": true
+  }
+}
