@@ -28,10 +28,10 @@ export const FAQ: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 border-b border-slate-200/80 bg-white relative">
+    <section id="faq" className="py-20 sm:py-24 border-b border-slate-200/80 bg-white relative">
       <div className="container px-4 md:px-8 max-w-4xl mx-auto">
-        <div className="text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-rose-200 bg-rose-50 text-rose-700 text-xs font-bold uppercase tracking-wider">
+        <div className="text-center mb-12 sm:mb-16 space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-red-200 bg-red-50 text-red-600 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="h-3.5 w-3.5" />
             <span>Tire Suas Dúvidas</span>
           </div>
@@ -47,8 +47,8 @@ export const FAQ: React.FC = () => {
 
         <Accordion type="single" collapsible className="w-full space-y-4">
           {faqItems.map((item, idx) => (
-            <AccordionItem key={idx} value={`item-${idx}`} className="glass-card-light px-6 rounded-2xl border border-slate-200 shadow-sm">
-              <AccordionTrigger className="hover:no-underline font-extrabold font-space text-slate-900 py-5 text-left text-base sm:text-lg">
+            <AccordionItem key={idx} value={`item-${idx}`} className="glass-card-cro px-6 rounded-2xl border border-slate-200 shadow-sm bg-white">
+              <AccordionTrigger className="hover:no-underline font-extrabold font-space text-slate-900 py-5 text-left text-base sm:text-lg hover:text-red-600 transition-colors">
                 {item.q}
               </AccordionTrigger>
               <AccordionContent className="text-slate-600 text-sm leading-relaxed pb-5 font-normal">

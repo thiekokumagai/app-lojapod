@@ -6,26 +6,26 @@
 
 @layer base {
   :root {
-    --background: 240 10% 3.5%;
-    --foreground: 0 0% 98%;
+    --background: 220 33% 98%;
+    --foreground: 222.2 84% 4.9%;
 
-    --text-secondary: 240 5% 70%;
-    --text-tertiary: 240 5% 50%;
+    --text-secondary: 215.4 16.3% 46.9%;
+    --text-tertiary: 215 13.8% 62.4%;
 
-    --card: 240 10% 6.5%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 240 10% 6.5%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
     --primary: 350 89% 52%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 6% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 240 6% 12%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 350 89% 52%;
     --accent-foreground: 0 0% 100%;
@@ -33,8 +33,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 16%;
-    --input: 240 6% 16%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
     --ring: 350 89% 52%;
 
     --radius: 1.25rem;
@@ -61,31 +61,31 @@
   }
 
   body {
-    @apply bg-[#070709] text-foreground antialiased selection:bg-red-600 selection:text-white min-h-screen overflow-x-hidden;
+    @apply bg-[#F8FAFC] text-slate-900 antialiased selection:bg-red-500 selection:text-white min-h-screen overflow-x-hidden;
     font-family: 'Inter', sans-serif;
     background-image: 
-      radial-gradient(at 50% 0%, rgba(239, 68, 68, 0.18) 0px, transparent 50%),
-      radial-gradient(at 100% 50%, rgba(220, 38, 38, 0.08) 0px, transparent 40%),
-      radial-gradient(at 0% 100%, rgba(16, 185, 129, 0.06) 0px, transparent 40%);
+      radial-gradient(at 50% 0%, rgba(239, 68, 68, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 50%, rgba(16, 185, 129, 0.04) 0px, transparent 40%),
+      radial-gradient(at 0% 100%, rgba(239, 68, 68, 0.03) 0px, transparent 40%);
     background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
-    @apply tracking-tight font-extrabold text-white;
+    @apply tracking-tight font-extrabold text-slate-900;
   }
 }
 
 @layer utilities {
   .text-gradient-fire {
-    background: linear-gradient(135deg, #ffffff 20%, #fca5a5 60%, #ef4444 100%);
+    background: linear-gradient(135deg, #0F172A 10%, #EF4444 60%, #DC2626 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-emerald {
-    background: linear-gradient(135deg, #ffffff 30%, #6ee7b7 70%, #10b981 100%);
+    background: linear-gradient(135deg, #0F172A 20%, #10B981 70%, #059669 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -95,34 +95,43 @@
     background: var(--brand-gradient);
   }
 
-  /* High Impact Dark Glass Cards */
+  /* Clean SaaS High Conversion White Cards */
   .glass-card-cro {
-    background: rgba(15, 15, 20, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    background: #FFFFFF;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05), 0 4px 12px -2px rgba(15, 23, 42, 0.02);
   }
 
   .glass-card-cro:hover {
-    border-color: rgba(239, 68, 68, 0.5);
-    box-shadow: 0 0 35px rgba(239, 68, 68, 0.2), 0 20px 50px rgba(0, 0, 0, 0.7);
-    transform: translateY(-4px);
+    border-color: rgba(239, 68, 68, 0.4);
+    box-shadow: 0 20px 40px -15px rgba(239, 68, 68, 0.12), 0 8px 20px -4px rgba(15, 23, 42, 0.06);
+    transform: translateY(-3px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glow-red-button {
-    box-shadow: 0 0 35px rgba(239, 68, 68, 0.45);
+    box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.35);
   }
   .glow-red-button:hover {
-    box-shadow: 0 0 50px rgba(239, 68, 68, 0.7);
+    box-shadow: 0 15px 35px -5px rgba(239, 68, 68, 0.5);
   }
 
   .bg-grid-pattern-dark {
-    background-size: 36px 36px;
+    background-size: 32px 32px;
     background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  }
+
+  /* Hide scrollbar utility */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 

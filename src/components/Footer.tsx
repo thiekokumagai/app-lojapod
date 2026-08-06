@@ -8,17 +8,17 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => {
   return (
-    <footer className="bg-slate-900 text-white border-t border-slate-800 py-16">
+    <footer className="bg-slate-950 text-white border-t border-slate-800 py-16">
       <div className="container px-4 md:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="space-y-4 md:col-span-1">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-r from-rose-600 to-rose-500 text-white shadow-lg shadow-rose-500/30">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg shadow-red-600/30">
                 <Zap className="h-5 w-5 fill-current" />
               </div>
               <span className="font-extrabold font-space text-2xl tracking-tight text-white">
-                Loja<span className="text-rose-500">Pod</span>
+                Loja<span className="text-red-500">Pod</span>
               </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
@@ -32,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => {
             <ul className="space-y-2.5 text-xs text-slate-400 font-medium">
               <li><a href="#recursos" className="hover:text-white transition-colors">Recursos do Sistema</a></li>
               <li><a href="#ecossistema" className="hover:text-white transition-colors">Front, Admin & Print</a></li>
-              <li><a href="#video-demo" className="hover:text-white transition-colors">Vídeo Demonstrativo</a></li>
+              <li><a href="#calculadora" className="hover:text-white transition-colors">Calculadora de ROI</a></li>
               <li><a href="#precos" className="hover:text-white transition-colors">Planos & Preços</a></li>
               <li><a href="#faq" className="hover:text-white transition-colors">Dúvidas Frequentes</a></li>
             </ul>
@@ -59,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => {
               target="_blank" 
               rel="noreferrer"
             >
-              <Button variant="outline" size="sm" className="gap-2 text-xs font-bold rounded-xl mt-1 border-emerald-500/30 bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30">
+              <Button variant="outline" size="sm" className="gap-2 text-xs font-bold rounded-xl mt-1 border-emerald-500/40 bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30">
                 <MessageCircle className="h-4 w-4 text-emerald-400" />
                 <span>Atendimento WhatsApp</span>
               </Button>
@@ -67,7 +67,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div className="border-t border-slate-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <div>
             © {new Date().getFullYear()} LojaPod. Todos os direitos reservados.
           </div>

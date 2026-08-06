@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { TopTicker } from "@/components/TopTicker";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
@@ -25,8 +24,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070709] text-white flex flex-col antialiased pb-16 sm:pb-0">
-      <TopTicker />
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col antialiased pb-16 sm:pb-0">
       <Header onOpenCheckout={handleOpenCheckout} />
       <main className="flex-1">
         <Hero onOpenCheckout={handleOpenCheckout} />

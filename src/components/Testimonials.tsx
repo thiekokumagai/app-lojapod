@@ -28,16 +28,16 @@ export const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 border-b border-slate-200/80 bg-slate-50 relative">
+    <section className="py-20 sm:py-24 border-b border-slate-200/80 bg-slate-50/70 relative">
       <div className="container px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-rose-200 bg-white text-rose-700 text-xs font-bold uppercase tracking-wider shadow-sm">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-red-200 bg-red-50 text-red-600 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="h-3.5 w-3.5" />
             <span>Casos Reais de Sucesso</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold font-space text-slate-900 leading-tight">
-            Aprovado por quem vende <span className="text-gradient-rose">todos os dias</span>
+            Aprovado por quem vende <span className="text-gradient-fire">todos os dias</span>
           </h2>
 
           <p className="text-slate-600 text-base md:text-lg">
@@ -45,17 +45,17 @@ export const Testimonials: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((t, i) => (
-            <div key={i} className="glass-card-light glass-card-light-hover p-8 rounded-3xl border border-slate-200 flex flex-col justify-between space-y-6">
+            <div key={i} className="glass-card-cro p-6 sm:p-8 rounded-3xl border border-slate-200 flex flex-col justify-between space-y-6 bg-white shadow-md">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-amber-400">
+                  <div className="flex items-center gap-1 text-amber-500">
                     {Array.from({ length: t.rating }).map((_, idx) => (
                       <Star key={idx} className="h-4 w-4 fill-current" />
                     ))}
                   </div>
-                  <Quote className="h-7 w-7 text-rose-200" />
+                  <Quote className="h-7 w-7 text-red-200" />
                 </div>
                 <p className="text-sm text-slate-700 italic leading-relaxed font-medium">
                   "{t.text}"
@@ -63,7 +63,7 @@ export const Testimonials: React.FC = () => {
               </div>
 
               <div className="pt-4 border-t border-slate-100 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-r from-rose-600 to-rose-500 text-white flex items-center justify-center font-extrabold text-xs shadow-md">
+                <div className="h-10 w-10 rounded-full bg-gradient-to-r from-red-600 to-red-500 text-white flex items-center justify-center font-extrabold text-xs shadow-md">
                   {t.avatar}
                 </div>
                 <div>
