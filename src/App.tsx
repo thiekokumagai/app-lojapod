@@ -1,13 +1,19 @@
 import React, { useState } from "react";
+import { TopTicker } from "@/components/TopTicker";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { EcosystemShowcase } from "@/components/EcosystemShowcase";
+import { Comparison } from "@/components/Comparison";
+import { RoiCalculator } from "@/components/RoiCalculator";
 import { Pricing } from "@/components/Pricing";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { CheckoutModal } from "@/components/CheckoutModal";
+import { LiveSalesNotification } from "@/components/LiveSalesNotification";
+import { FloatingCta } from "@/components/FloatingCta";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Toaster } from "sonner";
 
 export function App() {
@@ -20,12 +26,15 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col antialiased">
+    <div className="min-h-screen bg-[#070709] text-white flex flex-col antialiased">
+      <TopTicker />
       <Header onOpenCheckout={handleOpenCheckout} />
       <main className="flex-1">
         <Hero onOpenCheckout={handleOpenCheckout} />
-        <Features />
+        <Features onOpenCheckout={handleOpenCheckout} />
         <EcosystemShowcase />
+        <Comparison />
+        <RoiCalculator onOpenCheckout={handleOpenCheckout} />
         <Pricing onOpenCheckout={handleOpenCheckout} />
         <Testimonials />
         <FAQ />
@@ -37,6 +46,9 @@ export function App() {
         onClose={() => setIsCheckoutOpen(false)}
         selectedPlan={selectedPlan}
       />
+      <LiveSalesNotification />
+      <FloatingCta onOpenCheckout={handleOpenCheckout} />
+      <ScrollToTop />
       <Toaster position="top-right" richColors />
     </div>
   );

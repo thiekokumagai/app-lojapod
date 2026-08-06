@@ -12,7 +12,23 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { createSubscriptionSession, SubscriptionResponse } from "@/lib/api";
 import { toast } from "sonner";
-import { Check, Copy, Loader2, QrCode, ShieldCheck, Sparkles, Store, Zap } from "lucide-react";
+import { 
+  Check, 
+  Copy, 
+  Loader2, 
+  QrCode, 
+  ShieldCheck, 
+  Sparkles, 
+  Store, 
+  Zap, 
+  Mail, 
+  Phone, 
+  CreditCard,
+  CheckCircle2,
+  Clock,
+  ArrowRight,
+  Lock
+} from "lucide-react";
 
 interface CheckoutModalProps {
   isOpen: boolean;
@@ -65,7 +81,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     if (response?.pixCopiaECola) {
       navigator.clipboard.writeText(response.pixCopiaECola);
       setCopied(true);
-      toast.success("Código Pix Copia e Cola copiado!");
+      toast.success("Código Pix Copia e Cola copiado para a área de transferência!");
       setTimeout(() => setCopied(false), 3000);
     }
   };
@@ -81,166 +97,241 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleReset}>
-      <DialogContent className="sm:max-w-md p-6 max-h-[90vh] overflow-y-auto rounded-3xl bg-white border-slate-200 text-slate-900 shadow-2xl">
-        <DialogHeader className="space-y-3 text-left">
-          <div className="flex items-center justify-between">
-            <span className="inline-flex items-center gap-1.5 bg-rose-100 text-rose-700 border border-rose-200 px-3 py-1 rounded-full text-xs font-extrabold uppercase">
-              <Zap className="h-3 w-3 fill-current" />
-              <span>Plano {selectedPlan === "mensal" ? "Mensal Recorrente" : "Anual com Desconto"}</span>
+      <DialogContent className="sm:max-w-lg p-0 overflow-hidden rounded-3xl bg-[#0b0b0f] border-white/15 text-white shadow-2xl backdrop-blur-2xl">
+        {/* Modal Top Header Banner */}
+        <div className="bg-gradient-to-r from-red-950 via-zinc-900 to-zinc-950 p-6 border-b border-white/10 relative overflow-hidden">
+          <div className="flex items-center justify-between mb-3">
+            <span className="inline-flex items-center gap-1.5 bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-full text-xs font-extrabold uppercase">
+              <Zap className="h-3.5 w-3.5 fill-current" />
+              <span>Plano {selectedPlan === "mensal" ? "Mensal Pro" : "Anual com Desconto"}</span>
             </span>
-            <span className="text-base font-extrabold font-space text-rose-600">{priceText}</span>
+            <span className="text-lg font-extrabold font-space text-red-400">{priceText}</span>
           </div>
 
-          <DialogTitle className="text-2xl font-extrabold font-space text-slate-900">
+          <DialogTitle className="text-2xl font-extrabold font-space text-white tracking-tight">
             {response ? "Pagamento via Pix Instantâneo" : "Cadastre Sua Loja no LojaPod"}
           </DialogTitle>
 
-          <DialogDescription className="text-xs text-slate-500 leading-relaxed">
+          <DialogDescription className="text-xs text-zinc-400 leading-relaxed mt-1">
             {response 
-              ? "Escaneie o QR Code abaixo ou copie a chave Pix para liberar seu painel administrativo imediatamente."
-              : "Informe os dados da sua loja para gerar a chave Pix direta na API e ativar seu acesso."}
+              ? "Escaneie o QR Code abaixo ou copie o código Pix para liberar seu painel administrativo imediatamente."
+              : "Preencha os dados abaixo para gerar a cobrança Pix e ativar o catálogo da sua loja."}
           </DialogDescription>
-        </DialogHeader>
 
-        {!response ? (
-          <form onSubmit={handleSubmit} className="space-y-4 pt-2">
-            <div className="space-y-1.5">
-              <Label htmlFor="storeName" className="text-xs font-semibold text-slate-700">
-                Nome da sua Loja <span className="text-rose-600">*</span>
-              </Label>
-              <div className="relative">
-                <Input
-                  id="storeName"
-                  placeholder="Ex: VapeShop Central"
-                  value={storeName}
-                  onChange={(e) => setStoreName(e.target.value)}
-                  required
-                  className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-rose-500 rounded-xl"
-                />
-                <Store className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
-              </div>
+          {/* Visual Step Progress Bar */}
+          <div className="flex items-center gap-2 mt-4 pt-3 border-t border-white/10 text-xs font-bold font-mono">
+            <div className={`flex items-center gap-1.5 px-3 py-1 rounded-lg ${!response ? 'bg-red-600 text-white' : 'bg-emerald-500/20 text-emerald-400'}`}>
+              <span>1. Cadastro da Loja</span>
+              {!response ? null : <Check className="h-3.5 w-3.5" />}
             </div>
-
-            <div className="space-y-1.5">
-              <Label htmlFor="email" className="text-xs font-semibold text-slate-700">
-                E-mail de Acesso Admin <span className="text-rose-600">*</span>
-              </Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="contato@sualoja.com.br"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-rose-500 rounded-xl"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="space-y-1.5">
-                <Label htmlFor="phone" className="text-xs font-semibold text-slate-700">
-                  WhatsApp da Loja <span className="text-rose-600">*</span>
-                </Label>
-                <Input
-                  id="phone"
-                  placeholder="(11) 99999-9999"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                  className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-rose-500 rounded-xl"
-                />
-              </div>
-
-              <div className="space-y-1.5">
-                <Label htmlFor="cpfCnpj" className="text-xs font-semibold text-slate-700">
-                  CPF ou CNPJ
-                </Label>
-                <Input
-                  id="cpfCnpj"
-                  placeholder="00.000.000/0001-00"
-                  value={cpfCnpj}
-                  onChange={(e) => setCpfCnpj(e.target.value)}
-                  className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-rose-500 rounded-xl"
-                />
-              </div>
-            </div>
-
-            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 flex items-start gap-2.5">
-              <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-              <span>Conexão segura direta com a api-lojapod. Liberação automática pós-confirmação.</span>
-            </div>
-
-            <Button
-              type="submit"
-              variant="gradient"
-              size="lg"
-              disabled={isLoading}
-              className="w-full h-14 text-base font-extrabold rounded-2xl shadow-lg shadow-rose-500/25 mt-2 bg-gradient-to-r from-rose-600 to-rose-500 text-white"
-            >
-              {isLoading ? (
-                <div className="flex items-center gap-2">
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                  <span>Gerando Assinatura via API...</span>
-                </div>
-              ) : (
-                <span>Confirmar & Ir para Pagamento Pix</span>
-              )}
-            </Button>
-          </form>
-        ) : (
-          <div className="space-y-5 pt-2 text-center">
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl inline-block shadow-md">
-              {response.qrCodePix ? (
-                <img
-                  src={response.qrCodePix}
-                  alt="QR Code Pix"
-                  className="w-48 h-48 mx-auto rounded-lg"
-                />
-              ) : (
-                <div className="w-48 h-48 flex items-center justify-center bg-gray-100 rounded-lg text-xs text-gray-500">
-                  <QrCode className="h-12 w-12 text-primary" />
-                </div>
-              )}
-            </div>
-
-            <div className="space-y-2">
-              <div className="text-xs font-semibold text-slate-600">Chave Pix Copia e Cola:</div>
-              <div className="flex items-center gap-2">
-                <Input
-                  readOnly
-                  value={response.pixCopiaECola || ""}
-                  className="text-xs font-mono bg-slate-100 border-slate-200 text-slate-800 select-all"
-                />
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={handleCopyPix}
-                  className="shrink-0 gap-1.5 border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold"
-                >
-                  {copied ? <Check className="h-4 w-4 text-emerald-600" /> : <Copy className="h-4 w-4" />}
-                  <span>{copied ? "Copiado" : "Copiar"}</span>
-                </Button>
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
-              <a
-                href={response.adminUrl || (import.meta.env.VITE_ADMIN_URL || "http://localhost:5174")}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full"
-              >
-                <Button variant="gradient" className="w-full h-12 rounded-xl gap-2 font-bold bg-gradient-to-r from-rose-600 to-rose-500 text-white">
-                  <span>Ir para o Painel Admin da Loja</span>
-                </Button>
-              </a>
-              <Button variant="ghost" onClick={handleReset} className="w-full text-xs text-slate-500 hover:text-slate-800">
-                Fechar Janela
-              </Button>
+            <span className="text-zinc-600">➔</span>
+            <div className={`flex items-center gap-1.5 px-3 py-1 rounded-lg ${response ? 'bg-red-600 text-white' : 'bg-zinc-900 text-zinc-500'}`}>
+              <span>2. Pagamento Pix</span>
             </div>
           </div>
-        )}
+        </div>
+
+        {/* Modal Main Body */}
+        <div className="p-6">
+          {!response ? (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Order Summary Box */}
+              <div className="p-4 bg-zinc-900/90 border border-white/10 rounded-2xl space-y-2 text-xs">
+                <div className="flex justify-between items-center text-zinc-300 font-bold">
+                  <span>Assinatura Escolhida:</span>
+                  <span className="text-white font-space font-extrabold text-sm">{selectedPlan === "mensal" ? "Plano Mensal Pro" : "Plano Anual VIP"}</span>
+                </div>
+                <div className="flex justify-between items-center text-zinc-400">
+                  <span>Valor Recorrente:</span>
+                  <span className="text-emerald-400 font-bold text-sm">{priceText}</span>
+                </div>
+                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-zinc-400">
+                  <span className="flex items-center gap-1 text-emerald-400">
+                    <CheckCircle2 className="h-3.5 w-3.5" /> Onboarding VIP Gratuito
+                  </span>
+                  <span className="flex items-center gap-1 text-zinc-400">
+                    <Lock className="h-3.5 w-3.5" /> Sem fidelidade
+                  </span>
+                </div>
+              </div>
+
+              {/* Form Input 1: Store Name */}
+              <div className="space-y-1.5">
+                <Label htmlFor="storeName" className="text-xs font-semibold text-zinc-300">
+                  Nome da sua Loja <span className="text-red-400">*</span>
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="storeName"
+                    placeholder="Ex: VapeShop Central SP"
+                    value={storeName}
+                    onChange={(e) => setStoreName(e.target.value)}
+                    required
+                    className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
+                  />
+                  <Store className="absolute left-3.5 top-3.5 h-4 w-4 text-zinc-500" />
+                </div>
+              </div>
+
+              {/* Form Input 2: Email */}
+              <div className="space-y-1.5">
+                <Label htmlFor="email" className="text-xs font-semibold text-zinc-300">
+                  E-mail de Acesso Admin Master <span className="text-red-400">*</span>
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="seu-email@sualoja.com.br"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
+                  />
+                  <Mail className="absolute left-3.5 top-3.5 h-4 w-4 text-zinc-500" />
+                </div>
+              </div>
+
+              {/* Form Inputs Grid: Phone & CPF/CNPJ */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <Label htmlFor="phone" className="text-xs font-semibold text-zinc-300">
+                    WhatsApp da Loja <span className="text-red-400">*</span>
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      id="phone"
+                      placeholder="(11) 99999-9999"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      required
+                      className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
+                    />
+                    <Phone className="absolute left-3.5 top-3.5 h-4 w-4 text-zinc-500" />
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <Label htmlFor="cpfCnpj" className="text-xs font-semibold text-zinc-300">
+                    CPF ou CNPJ (Opcional)
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      id="cpfCnpj"
+                      placeholder="00.000.000/0001-00"
+                      value={cpfCnpj}
+                      onChange={(e) => setCpfCnpj(e.target.value)}
+                      className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
+                    />
+                    <CreditCard className="absolute left-3.5 top-3.5 h-4 w-4 text-zinc-500" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-3.5 bg-emerald-950/40 rounded-xl border border-emerald-500/30 text-xs text-emerald-300 flex items-start gap-2.5">
+                <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                <span>Conexão direta segura com a API LojaPod. Ativação e liberação do catálogo em menos de 10 segundos.</span>
+              </div>
+
+              <Button
+                type="submit"
+                variant="gradient"
+                size="lg"
+                disabled={isLoading}
+                className="w-full h-14 text-base font-extrabold rounded-2xl shadow-xl shadow-red-600/40 mt-2 bg-gradient-to-r from-red-600 to-red-500 text-white gap-2 border-0 hover:scale-[1.02] transition-all"
+              >
+                {isLoading ? (
+                  <div className="flex items-center gap-2">
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    <span>Conectando com a API...</span>
+                  </div>
+                ) : (
+                  <>
+                    <span>Confirmar Cadastro & Gerar Pix</span>
+                    <ArrowRight className="h-5 w-5" />
+                  </>
+                )}
+              </Button>
+            </form>
+          ) : (
+            <div className="space-y-5 text-center">
+              {/* Timer Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold">
+                <Clock className="h-3.5 w-3.5 animate-pulse" />
+                <span>Chave Pix Válida por 15 Minutos</span>
+              </div>
+
+              {/* QR Code Container with Glow */}
+              <div className="p-4 bg-white rounded-2xl inline-block shadow-2xl border-4 border-red-500/40 relative group">
+                {response.qrCodePix ? (
+                  <img
+                    src={response.qrCodePix}
+                    alt="QR Code Pix"
+                    className="w-52 h-52 mx-auto rounded-lg"
+                  />
+                ) : (
+                  <div className="w-52 h-52 flex items-center justify-center bg-gray-100 rounded-lg text-xs text-gray-500 font-bold">
+                    <QrCode className="h-14 w-14 text-red-600" />
+                  </div>
+                )}
+              </div>
+
+              {/* Pix Copy Box */}
+              <div className="space-y-2">
+                <div className="text-xs font-bold text-zinc-300">Código Pix Copia e Cola:</div>
+                <div className="flex items-center gap-2">
+                  <Input
+                    readOnly
+                    value={response.pixCopiaECola || ""}
+                    className="text-xs font-mono bg-zinc-950 border-white/15 text-zinc-300 select-all h-12"
+                  />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleCopyPix}
+                    className="shrink-0 h-12 px-4 gap-2 border-emerald-500/40 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-extrabold"
+                  >
+                    {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
+                    <span>{copied ? "Copiado!" : "Copiar Pix"}</span>
+                  </Button>
+                </div>
+              </div>
+
+              {/* How to Pay Instructions */}
+              <div className="p-4 bg-zinc-900/90 rounded-2xl border border-white/10 text-left text-xs space-y-2 text-zinc-300">
+                <div className="font-bold text-white flex items-center gap-1.5">
+                  <Sparkles className="h-3.5 w-3.5 text-red-400" />
+                  <span>Passo a Passo para Liberação Imediata:</span>
+                </div>
+                <ol className="list-decimal list-inside space-y-1 text-zinc-400">
+                  <li>Abra o aplicativo do seu banco e selecione <strong>Pix</strong></li>
+                  <li>Escolha <strong>Escanear QR Code</strong> ou <strong>Pix Copia e Cola</strong></li>
+                  <li>Confirme o valor de <strong>{priceText}</strong></li>
+                  <li>Pronto! Seu aceso ao Admin será liberado automaticamente.</li>
+                </ol>
+              </div>
+
+              {/* Bottom Actions */}
+              <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
+                <a
+                  href={response.adminUrl || (import.meta.env.VITE_ADMIN_URL || "http://localhost:5174")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full"
+                >
+                  <Button variant="gradient" className="w-full h-14 rounded-2xl gap-2 font-extrabold bg-gradient-to-r from-red-600 to-red-500 text-white shadow-xl">
+                    <span>Acessar Meu Painel Admin Agora</span>
+                    <ArrowRight className="h-5 w-5" />
+                  </Button>
+                </a>
+                <Button variant="ghost" onClick={handleReset} className="w-full text-xs text-zinc-500 hover:text-zinc-300">
+                  Fechar Janela
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
       </DialogContent>
     </Dialog>
   );
