@@ -97,42 +97,42 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleReset}>
-      <DialogContent className="sm:max-w-lg p-0 overflow-hidden rounded-3xl bg-[#0b0b0f] border-white/15 text-white shadow-2xl backdrop-blur-2xl">
+      <DialogContent className="sm:max-w-lg p-0 overflow-y-auto max-h-[88dvh] rounded-3xl bg-[#0b0b0f] border-white/15 text-white shadow-2xl backdrop-blur-2xl overscroll-contain">
         {/* Modal Top Header Banner */}
-        <div className="bg-gradient-to-r from-red-950 via-zinc-900 to-zinc-950 p-6 border-b border-white/10 relative overflow-hidden">
-          <div className="flex items-center justify-between mb-3">
-            <span className="inline-flex items-center gap-1.5 bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-full text-xs font-extrabold uppercase">
-              <Zap className="h-3.5 w-3.5 fill-current" />
+        <div className="bg-gradient-to-r from-red-950 via-zinc-900 to-zinc-950 p-4 sm:p-6 border-b border-white/10 relative overflow-hidden">
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <span className="inline-flex items-center gap-1.5 bg-red-500/20 text-red-400 border border-red-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-extrabold uppercase">
+              <Zap className="h-3 w-3 fill-current" />
               <span>Plano {selectedPlan === "mensal" ? "Mensal Pro" : "Anual com Desconto"}</span>
             </span>
-            <span className="text-lg font-extrabold font-space text-red-400">{priceText}</span>
+            <span className="text-base sm:text-lg font-extrabold font-space text-red-400">{priceText}</span>
           </div>
 
-          <DialogTitle className="text-2xl font-extrabold font-space text-white tracking-tight">
+          <DialogTitle className="text-xl sm:text-2xl font-extrabold font-space text-white tracking-tight">
             {response ? "Pagamento via Pix Instantâneo" : "Cadastre Sua Loja no LojaPod"}
           </DialogTitle>
 
-          <DialogDescription className="text-xs text-zinc-400 leading-relaxed mt-1">
+          <DialogDescription className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed mt-1">
             {response 
               ? "Escaneie o QR Code abaixo ou copie o código Pix para liberar seu painel administrativo imediatamente."
               : "Preencha os dados abaixo para gerar a cobrança Pix e ativar o catálogo da sua loja."}
           </DialogDescription>
 
           {/* Visual Step Progress Bar */}
-          <div className="flex items-center gap-2 mt-4 pt-3 border-t border-white/10 text-xs font-bold font-mono">
-            <div className={`flex items-center gap-1.5 px-3 py-1 rounded-lg ${!response ? 'bg-red-600 text-white' : 'bg-emerald-500/20 text-emerald-400'}`}>
-              <span>1. Cadastro da Loja</span>
-              {!response ? null : <Check className="h-3.5 w-3.5" />}
+          <div className="flex items-center gap-2 mt-3 pt-2.5 border-t border-white/10 text-[10px] sm:text-xs font-bold font-mono">
+            <div className={`flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg ${!response ? 'bg-red-600 text-white' : 'bg-emerald-500/20 text-emerald-400'}`}>
+              <span>1. Cadastro</span>
+              {!response ? null : <Check className="h-3 w-3" />}
             </div>
             <span className="text-zinc-600">➔</span>
-            <div className={`flex items-center gap-1.5 px-3 py-1 rounded-lg ${response ? 'bg-red-600 text-white' : 'bg-zinc-900 text-zinc-500'}`}>
+            <div className={`flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg ${response ? 'bg-red-600 text-white' : 'bg-zinc-900 text-zinc-500'}`}>
               <span>2. Pagamento Pix</span>
             </div>
           </div>
         </div>
 
         {/* Modal Main Body */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {!response ? (
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Order Summary Box */}
@@ -167,7 +167,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     value={storeName}
                     onChange={(e) => setStoreName(e.target.value)}
                     required
-                    className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
+                    className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-base sm:text-sm"
                   />
                   <Store className="absolute left-3.5 top-3.5 h-4 w-4 text-zinc-500" />
                 </div>
@@ -186,7 +186,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
+                    className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-base sm:text-sm"
                   />
                   <Mail className="absolute left-3.5 top-3.5 h-4 w-4 text-zinc-500" />
                 </div>
@@ -205,7 +205,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       required
-                      className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
+                      className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-base sm:text-sm"
                     />
                     <Phone className="absolute left-3.5 top-3.5 h-4 w-4 text-zinc-500" />
                   </div>
@@ -221,7 +221,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       placeholder="00.000.000/0001-00"
                       value={cpfCnpj}
                       onChange={(e) => setCpfCnpj(e.target.value)}
-                      className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
+                      className="pl-10 bg-zinc-950 border-white/15 text-white placeholder:text-zinc-600 focus-visible:ring-red-500 rounded-xl h-12 text-base sm:text-sm"
                     />
                     <CreditCard className="absolute left-3.5 top-3.5 h-4 w-4 text-zinc-500" />
                   </div>
