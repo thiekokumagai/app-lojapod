@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="w-full sm:w-auto text-xs sm:text-base h-auto min-h-[3rem] py-3 sm:py-4 px-6 sm:px-8 rounded-2xl border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold shadow-sm gap-2 whitespace-normal text-center"
+              className="w-full sm:w-auto text-xs sm:text-base h-auto min-h-[3rem] py-3 sm:py-4 px-6 sm:px-8 rounded-2xl border-slate-300 bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-900 font-bold shadow-sm gap-2 whitespace-normal text-center"
             >
               <span>Simular Meu Lucro Adicional</span>
             </Button>
