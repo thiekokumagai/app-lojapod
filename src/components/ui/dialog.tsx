@@ -32,13 +32,13 @@ const DialogContent = React.forwardRef<
       <DialogPrimitive.Content
         ref={ref}
         className={cn(
-          "relative z-50 grid w-full max-w-lg gap-4 border bg-background p-6 shadow-2xl duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 rounded-2xl max-h-[88dvh] overflow-y-auto overscroll-contain",
+          "relative z-50 w-full max-w-lg border bg-background shadow-2xl duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 rounded-2xl max-h-[90vh] overscroll-contain",
           className
         )}
         {...props}
       >
         {children}
-        <DialogPrimitive.Close className="absolute right-4 top-4 rounded-full p-2 text-zinc-400 opacity-80 transition-opacity hover:opacity-100 focus:outline-none bg-zinc-900/80 border border-white/10 hover:bg-zinc-800 z-20">
+        <DialogPrimitive.Close className="absolute right-4 top-4 rounded-full p-2 text-slate-300 hover:text-white transition-all focus:outline-none bg-slate-900/70 hover:bg-slate-800 border border-white/10 z-50">
           <X className="h-4 w-4" />
           <span className="sr-only">Fechar</span>
         </DialogPrimitive.Close>

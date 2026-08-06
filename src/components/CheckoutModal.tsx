@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { 
   Dialog, 
   DialogContent, 
-  DialogHeader, 
   DialogTitle, 
   DialogDescription 
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
 import { createSubscriptionSession, SubscriptionResponse } from "@/lib/api";
 import { toast } from "sonner";
 import { 
@@ -23,7 +21,6 @@ import {
   Zap, 
   Mail, 
   Phone, 
-  CreditCard,
   CheckCircle2,
   Clock,
   ArrowRight,
@@ -44,7 +41,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const [storeName, setStoreName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [cpfCnpj, setCpfCnpj] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState<SubscriptionResponse | null>(null);
   const [copied, setCopied] = useState(false);
@@ -64,7 +60,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
         storeName,
         email,
         phone,
-        cpfCnpj,
         planId: selectedPlan,
       });
 
@@ -91,19 +86,18 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     setStoreName("");
     setEmail("");
     setPhone("");
-    setCpfCnpj("");
     onClose();
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={handleReset}>
-      <DialogContent className="sm:max-w-lg p-0 overflow-y-auto max-h-[88dvh] rounded-3xl bg-white border-slate-200 text-slate-900 shadow-2xl overscroll-contain">
-        {/* Modal Top Header Banner */}
-        <div className="bg-slate-950 p-4 sm:p-6 border-b border-slate-800 text-white relative overflow-hidden">
-          <div className="flex items-center justify-between mb-2 sm:mb-3">
-            <span className="inline-flex items-center gap-1.5 bg-red-500/20 text-red-400 border border-red-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-extrabold uppercase">
+      <DialogContent className="sm:max-w-lg p-0 flex flex-col h-[90vh] sm:h-[85vh] max-h-[720px] rounded-3xl bg-white border-slate-200 text-slate-900 shadow-2xl overflow-hidden">
+        {/* Fixed Header Banner (Admin Style) */}
+        <div className="shrink-0 bg-slate-950 p-5 sm:p-6 border-b border-slate-800 text-white relative overflow-hidden">
+          <div className="flex items-center justify-between mb-2 pr-8">
+            <span className="inline-flex items-center gap-1.5 bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-full text-[10px] sm:text-xs font-extrabold uppercase tracking-wider">
               <Zap className="h-3 w-3 fill-current" />
-              <span>Plano {selectedPlan === "mensal" ? "Mensal Pro" : "Anual com Desconto"}</span>
+              <span>{selectedPlan === "mensal" ? "Plano Mensal Pro" : "Plano Anual VIP"}</span>
             </span>
             <span className="text-base sm:text-lg font-extrabold font-space text-red-400">{priceText}</span>
           </div>
@@ -112,29 +106,29 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             {response ? "Pagamento via Pix Instantâneo" : "Cadastre Sua Loja no LojaPod"}
           </DialogTitle>
 
-          <DialogDescription className="text-[11px] sm:text-xs text-slate-400 leading-relaxed mt-1">
+          <DialogDescription className="text-xs text-slate-400 leading-relaxed mt-1">
             {response 
-              ? "Escaneie o QR Code abaixo ou copie o código Pix para liberar seu painel administrativo imediatamente."
+              ? "Escaneie o QR Code ou copie a chave Pix para ativar seu catálogo imediatamente."
               : "Preencha os dados abaixo para gerar a cobrança Pix e ativar o catálogo da sua loja."}
           </DialogDescription>
 
-          {/* Visual Step Progress Bar */}
-          <div className="flex items-center gap-2 mt-3 pt-2.5 border-t border-slate-800 text-[10px] sm:text-xs font-bold font-mono">
-            <div className={`flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg ${!response ? 'bg-red-600 text-white' : 'bg-emerald-500/20 text-emerald-400'}`}>
-              <span>1. Cadastro</span>
+          {/* 2-Step Progress Indicator */}
+          <div className="flex items-center gap-2 mt-3 pt-2.5 border-t border-slate-800/80 text-[10px] sm:text-xs font-bold font-mono">
+            <div className={`flex items-center gap-1 px-3 py-1 rounded-lg ${!response ? 'bg-red-600 text-white' : 'bg-emerald-500/20 text-emerald-400'}`}>
+              <span>1. Cadastro da Loja</span>
               {!response ? null : <Check className="h-3 w-3" />}
             </div>
             <span className="text-slate-600">➔</span>
-            <div className={`flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-lg ${response ? 'bg-red-600 text-white' : 'bg-slate-900 text-slate-500'}`}>
+            <div className={`flex items-center gap-1 px-3 py-1 rounded-lg ${response ? 'bg-red-600 text-white' : 'bg-slate-900 text-slate-500'}`}>
               <span>2. Pagamento Pix</span>
             </div>
           </div>
         </div>
 
-        {/* Modal Main Body */}
-        <div className="p-4 sm:p-6 bg-white">
+        {/* Scrollable Main Body */}
+        <div className="flex-1 overflow-y-auto p-5 sm:p-6 bg-white space-y-4 font-sans">
           {!response ? (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form id="checkout-form" onSubmit={handleSubmit} className="space-y-4">
               {/* Order Summary Box */}
               <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2 text-xs">
                 <div className="flex justify-between items-center text-slate-700 font-bold">
@@ -167,7 +161,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     value={storeName}
                     onChange={(e) => setStoreName(e.target.value)}
                     required
-                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-red-500 rounded-xl h-12 text-base sm:text-sm"
+                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
                   />
                   <Store className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
                 </div>
@@ -186,45 +180,27 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-red-500 rounded-xl h-12 text-base sm:text-sm"
+                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
                   />
                   <Mail className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
                 </div>
               </div>
 
-              {/* Form Inputs Grid: Phone & CPF/CNPJ */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="space-y-1.5">
-                  <Label htmlFor="phone" className="text-xs font-semibold text-slate-700">
-                    WhatsApp da Loja <span className="text-red-500">*</span>
-                  </Label>
-                  <div className="relative">
-                    <Input
-                      id="phone"
-                      placeholder="(11) 99999-9999"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      required
-                      className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-red-500 rounded-xl h-12 text-base sm:text-sm"
-                    />
-                    <Phone className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <Label htmlFor="cpfCnpj" className="text-xs font-semibold text-slate-700">
-                    CPF ou CNPJ (Opcional)
-                  </Label>
-                  <div className="relative">
-                    <Input
-                      id="cpfCnpj"
-                      placeholder="00.000.000/0001-00"
-                      value={cpfCnpj}
-                      onChange={(e) => setCpfCnpj(e.target.value)}
-                      className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-red-500 rounded-xl h-12 text-base sm:text-sm"
-                    />
-                    <CreditCard className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
-                  </div>
+              {/* Form Input 3: Phone */}
+              <div className="space-y-1.5">
+                <Label htmlFor="phone" className="text-xs font-semibold text-slate-700">
+                  WhatsApp da Loja <span className="text-red-500">*</span>
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="phone"
+                    placeholder="(11) 99999-9999"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-red-500 rounded-xl h-12 text-sm"
+                  />
+                  <Phone className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
                 </div>
               </div>
 
@@ -232,26 +208,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                 <span>Conexão direta segura com a API LojaPod. Ativação e liberação do catálogo em menos de 10 segundos.</span>
               </div>
-
-              <Button
-                type="submit"
-                variant="gradient"
-                size="lg"
-                disabled={isLoading}
-                className="w-full h-14 text-base font-extrabold rounded-2xl shadow-lg shadow-red-500/25 mt-2 bg-gradient-to-r from-red-600 to-red-500 text-white gap-2 border-0 hover:scale-[1.02] transition-all"
-              >
-                {isLoading ? (
-                  <div className="flex items-center gap-2">
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Conectando com a API...</span>
-                  </div>
-                ) : (
-                  <>
-                    <span>Confirmar Cadastro & Gerar Pix</span>
-                    <ArrowRight className="h-5 w-5" />
-                  </>
-                )}
-              </Button>
             </form>
           ) : (
             <div className="space-y-5 text-center">
@@ -311,24 +267,49 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   <li>Pronto! Seu aceso ao Admin será liberado automaticamente.</li>
                 </ol>
               </div>
+            </div>
+          )}
+        </div>
 
-              {/* Bottom Actions */}
-              <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
-                <a
-                  href={response.adminUrl || (import.meta.env.VITE_ADMIN_URL || "http://localhost:5174")}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full"
-                >
-                  <Button variant="gradient" className="w-full h-14 rounded-2xl gap-2 font-extrabold bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg">
-                    <span>Acessar Meu Painel Admin Agora</span>
-                    <ArrowRight className="h-5 w-5" />
-                  </Button>
-                </a>
-                <Button variant="ghost" onClick={handleReset} className="w-full text-xs text-slate-500 hover:text-slate-800">
-                  Fechar Janela
+        {/* Pinned Bottom Footer Action Bar */}
+        <div className="shrink-0 p-4 sm:p-5 bg-white border-t border-slate-200">
+          {!response ? (
+            <Button
+              type="submit"
+              form="checkout-form"
+              variant="gradient"
+              size="lg"
+              disabled={isLoading}
+              className="w-full h-13 sm:h-14 text-base font-extrabold rounded-2xl shadow-lg shadow-red-500/25 bg-gradient-to-r from-red-600 to-red-500 text-white gap-2 border-0 hover:scale-[1.01] transition-all"
+            >
+              {isLoading ? (
+                <div className="flex items-center gap-2">
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                  <span>Conectando com a API...</span>
+                </div>
+              ) : (
+                <>
+                  <span>Confirmar Cadastro & Gerar Pix</span>
+                  <ArrowRight className="h-5 w-5" />
+                </>
+              )}
+            </Button>
+          ) : (
+            <div className="flex flex-col gap-2">
+              <a
+                href={response.adminUrl || (import.meta.env.VITE_ADMIN_URL || "http://localhost:5174")}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full"
+              >
+                <Button variant="gradient" className="w-full h-13 sm:h-14 rounded-2xl gap-2 font-extrabold bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg">
+                  <span>Acessar Meu Painel Admin Agora</span>
+                  <ArrowRight className="h-5 w-5" />
                 </Button>
-              </div>
+              </a>
+              <Button variant="ghost" onClick={handleReset} className="w-full text-xs text-slate-500 hover:text-slate-800">
+                Fechar Janela
+              </Button>
             </div>
           )}
         </div>
