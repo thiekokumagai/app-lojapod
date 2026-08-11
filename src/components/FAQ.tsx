@@ -6,8 +6,8 @@ import { Sparkles } from "lucide-react";
 export const FAQ: React.FC = () => {
   const faqItems = [
     {
-      q: "Como funciona a assinatura mensal do LojaPod?",
-      a: "O plano mensal custa R$ 149,99/mês e concede acesso completo a todo o ecossistema (Vitrine do Cliente, Painel Admin e Módulo de Impressão). Não há taxa percentual sobre suas vendas nem fidelidade contratual."
+      q: "Como funciona a assinatura do LojaPod?",
+      a: "O plano completo custa R$ 150,00/mês e concede acesso ilimitado a todo o ecossistema (Vitrine por Sabores, PDV de Balcão e Cartão Fidelidade). Não há taxa percentual sobre suas vendas nem contrato de fidelidade."
     },
     {
       q: "Preciso de um computador para usar o sistema?",

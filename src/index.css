@@ -84,6 +84,20 @@
     background-clip: text;
   }
 
+  .text-gradient-lime {
+    background: linear-gradient(135deg, #0F172A 10%, #65A30D 50%, #84CC16 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-neon {
+    background: linear-gradient(135deg, #0F172A 0%, #16A34A 50%, #84CC16 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .text-gradient-emerald {
     background: linear-gradient(135deg, #0F172A 20%, #10B981 70%, #059669 100%);
     -webkit-background-clip: text;

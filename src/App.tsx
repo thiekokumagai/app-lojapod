@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Features } from "@/components/Features";
-import { EcosystemShowcase } from "@/components/EcosystemShowcase";
-import { Comparison } from "@/components/Comparison";
-import { RoiCalculator } from "@/components/RoiCalculator";
+import { ModuleSwapper } from "@/components/ModuleSwapper";
+import { FormulaBenefits } from "@/components/FormulaBenefits";
 import { Pricing } from "@/components/Pricing";
-import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { CheckoutModal } from "@/components/CheckoutModal";
@@ -28,12 +25,9 @@ export function App() {
       <Header onOpenCheckout={handleOpenCheckout} />
       <main className="flex-1">
         <Hero onOpenCheckout={handleOpenCheckout} />
-        <Features onOpenCheckout={handleOpenCheckout} />
-        <EcosystemShowcase />
-        <Comparison />
-        <RoiCalculator onOpenCheckout={handleOpenCheckout} />
+        <ModuleSwapper onOpenCheckout={handleOpenCheckout} />
+        <FormulaBenefits />
         <Pricing onOpenCheckout={handleOpenCheckout} />
-        <Testimonials />
         <FAQ />
       </main>
       <Footer onOpenCheckout={handleOpenCheckout} />
