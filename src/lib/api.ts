@@ -20,6 +20,34 @@ export async function fetchPublicPlans(): Promise<PublicPlan[]> {
   }
 }
 
+export interface RegisterTrialPayload {
+  title: string;
+  subdomain?: string;
+  adminEmail: string;
+  password?: string;
+}
+
+export async function registerTrialStore(payload: RegisterTrialPayload) {
+  const res = await fetch(`${API_URL}/stores/register-trial`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title: payload.title,
+      subdomain: payload.subdomain ? payload.subdomain.trim().toLowerCase() : undefined,
+      adminEmail: payload.adminEmail.trim().toLowerCase(),
+      password: payload.password || 'admin123',
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    const msg = Array.isArray(err.message) ? err.message.join(', ') : err.message;
+    throw new Error(msg || 'Não foi possível cadastrar a loja.');
+  }
+
+  return await res.json();
+}
+
 export interface SubscriptionPayload {
   storeName: string;
   email: string;
