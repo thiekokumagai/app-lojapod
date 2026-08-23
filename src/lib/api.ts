@@ -1,51 +1,50 @@
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
-export interface SubscriptionPayload {
-  storeName: string;
-  email: string;
-  phone: string;
-  cpfCnpj?: string;
-  planId: "mensal" | "anual";
-}
-
-export interface SubscriptionResponse {
-  success: boolean;
-  message: string;
+export interface PublicPlan {
+  id: string;
+  name: string;
+  description?: string;
+  price: number;
+  checkoutType: 'SINGLE_PRODUCT' | 'RECURRING_SUBSCRIPTION';
   checkoutUrl?: string;
-  qrCodePix?: string;
-  pixCopiaECola?: string;
-  adminUrl?: string;
 }
 
-export async function createSubscriptionSession(payload: SubscriptionPayload): Promise<SubscriptionResponse> {
+export async function fetchPublicPlans(): Promise<PublicPlan[]> {
   try {
-    const response = await fetch(`${API_URL}/subscriptions/create`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.message || "Erro ao conectar com servidor de pagamentos.");
-    }
-
-    return await response.json();
-  } catch (error: any) {
-    console.warn("API offline or simulation mode fallback:", error);
-    // Simulation fallback if API endpoint is not yet active on local environment
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          success: true,
-          message: "Sessão de assinatura criada com sucesso!",
-          pixCopiaECola: "00020126580014BR.GOV.BCB.PIX0136123e4567-e89b-12d3-a456-426614174000520400005303986540549.905802BR5915LOJAPOD OFICIAL6009SAO PAULO62070503***6304E2CA",
-          qrCodePix: "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=00020126580014BR.GOV.BCB.PIX0136123e4567-e89b-12d3-a456-426614174000520400005303986540549.905802BR5915LOJAPOD OFICIAL6009SAO PAULO62070503***6304E2CA",
-          adminUrl: import.meta.env.VITE_ADMIN_URL || "http://localhost:5174",
-        });
-      }, 800);
-    });
+    const res = await fetch(`${API_URL}/billing/plans`);
+    if (!res.ok) return [];
+    return await res.json();
+  } catch (e) {
+    console.error("Erro ao carregar planos públicos:", e);
+    return [];
   }
+}
+
+export interface RegisterTrialPayload {
+  title: string;
+  adminEmail: string;
+  phone?: string;
+  password?: string;
+  subdomain?: string;
+}
+
+export async function registerTrialStore(payload: RegisterTrialPayload) {
+  const res = await fetch(`${API_URL}/stores/register-trial`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title: payload.title,
+      adminEmail: payload.adminEmail,
+      phone: payload.phone,
+      password: payload.password || 'admin123',
+      subdomain: payload.subdomain,
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.message || 'Não foi possível cadastrar a loja.');
+  }
+
+  return await res.json();
 }

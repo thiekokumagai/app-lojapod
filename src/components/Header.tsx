@@ -105,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
             className="hidden sm:flex gap-2 font-mono font-extrabold shadow-lg rounded-full bg-lime-400 hover:bg-lime-500 text-slate-950 border-0 px-5 sm:px-6 text-xs sm:text-sm h-9 sm:h-11 uppercase transition-all transform hover:scale-[1.03]"
           >
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Assinar — R$ 150/mês</span>
+            <span>Teste Grátis 7 Dias</span>
             <ArrowRight className="h-3.5 w-3.5" />
           </Button>
 
@@ -171,7 +171,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
             className="w-full py-4 font-mono font-extrabold rounded-full bg-lime-400 hover:bg-lime-500 text-slate-950 border-0 uppercase gap-2 text-sm"
           >
             <Sparkles className="h-4 w-4" />
-            <span>Assinar por R$ 150/mês</span>
+            <span>Teste Grátis 7 Dias</span>
             <ArrowRight className="h-4 w-4" />
           </Button>
         </div>

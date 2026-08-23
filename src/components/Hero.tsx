@@ -57,7 +57,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => {
             onClick={() => onOpenCheckout("mensal")}
             className="w-full sm:w-auto text-sm h-12 px-8 rounded-full shadow-lg gap-2 font-mono font-extrabold bg-lime-400 hover:bg-lime-500 text-slate-950 border-0 uppercase"
           >
-            <span>Assinar por R$ 150/mês</span>
+            <span>Criar Minha Loja (Teste Grátis 7 Dias)</span>
             <ArrowRight className="h-4 w-4 text-slate-950" />
           </Button>
 
