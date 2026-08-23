@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Flame, Zap } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 interface FloatingCtaProps {
   onOpenCheckout: (plan: "mensal" | "anual") => void;
@@ -8,21 +8,24 @@ interface FloatingCtaProps {
 
 export const FloatingCta: React.FC<FloatingCtaProps> = ({ onOpenCheckout }) => {
   return (
-    <div className="fixed bottom-0 inset-x-0 z-40 p-3 bg-white/95 border-t border-slate-200 backdrop-blur-xl shadow-[0_-8px_25px_rgba(15,23,42,0.1)] sm:hidden">
-      <div className="flex items-center justify-between gap-3 max-w-md mx-auto">
+    <div className="fixed bottom-0 inset-x-0 z-40 p-3 bg-slate-950/95 border-t border-slate-800 backdrop-blur-xl shadow-[0_-8px_25px_rgba(0,0,0,0.5)] sm:hidden">
+      <div className="flex items-center justify-between gap-2 max-w-md mx-auto">
         <div>
-          <div className="text-xs font-extrabold font-space text-slate-900">Plano Mensal Pro</div>
-          <div className="text-sm font-extrabold text-red-600">R$ 149,99/mês</div>
+          <div className="flex items-center gap-1 text-xs font-black font-space uppercase text-white tracking-wide">
+            <Sparkles className="h-3.5 w-3.5 text-lime-400" />
+            <span>TESTE GRÁTIS</span>
+          </div>
+          <div className="text-[11px] font-mono font-bold text-lime-400 mt-0.5">
+            7 DIAS • R$ 0,00 HOJE
+          </div>
         </div>
         <Button
-          variant="gradient"
           size="sm"
           onClick={() => onOpenCheckout("mensal")}
-          className="py-4 px-5 font-extrabold text-xs rounded-xl shadow-md shadow-red-500/20 gap-1.5 bg-gradient-to-r from-red-600 to-red-500 text-white border-0"
+          className="py-3.5 px-4 font-mono font-extrabold text-xs uppercase rounded-full shadow-lg gap-1.5 bg-lime-400 hover:bg-lime-500 text-slate-950 border-0 cursor-pointer shrink-0"
         >
-          <Flame className="h-4 w-4 fill-white" />
-          <span>Assinar Agora</span>
-          <ArrowRight className="h-4 w-4" />
+          <span>Testar 7 Dias Grátis</span>
+          <ArrowRight className="h-3.5 w-3.5 text-slate-950" />
         </Button>
       </div>
     </div>
