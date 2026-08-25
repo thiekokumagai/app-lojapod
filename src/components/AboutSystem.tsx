@@ -1,5 +1,5 @@
 import React from "react";
-import { Bike, TrendingUp, CreditCard, Instagram } from "lucide-react";
+import { Bike, TrendingUp, CreditCard, Instagram, Printer, ShoppingCart } from "lucide-react";
 
 export const AboutSystem: React.FC = () => {
   const steps = [
@@ -10,16 +10,28 @@ export const AboutSystem: React.FC = () => {
     },
     {
       num: 2,
+      title: "Venda no PDV Rápida e Fácil",
+      desc: "Registre vendas no balcão em poucos cliques com um PDV simples, ágil e intuitivo.",
+      featured: true,
+    },
+    {
+      num: 3,
+      title: "Impressão Automática",
+      desc: "Emita comprovantes com impressão térmica automática nos tamanhos 58mm ou 80mm.",
+      featured: true,
+    },
+    {
+      num: 4,
       title: "Motoboy & Envio de Rotas no Mapa",
       desc: "Cadastro e financeiro do entregador com envio de rota no mapa direto para Waze ou Google Maps.",
     },
     {
-      num: 3,
+      num: 5,
       title: "Contas a Pagar & Investimentos",
       desc: "Módulo completo de contas a pagar, controle de despesas e acompanhamento do capital investido.",
     },
     {
-      num: 4,
+      num: 6,
       title: "Link para Bio do Instagram & Zap",
       desc: "Gere seu link exclusivo para a bio do Instagram e receba pedidos organizados no WhatsApp.",
     },
@@ -52,8 +64,8 @@ export const AboutSystem: React.FC = () => {
           {/* Left Column: 4 Numbered Steps */}
           <div className="lg:col-span-6 space-y-6">
             {steps.map((item) => (
-              <div key={item.num} className="flex items-start gap-4">
-                <div className="w-9 h-9 rounded-full bg-[#e6f7ef] text-[#27a768] font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
+              <div key={item.num} className={`flex items-start gap-4 ${item.featured ? "rounded-2xl border border-emerald-200 bg-[#f4fbf7] p-4" : ""}`}>
+                <div className={`w-9 h-9 rounded-full font-bold flex items-center justify-center text-sm shrink-0 mt-0.5 ${item.featured ? "bg-[#27a768] text-white" : "bg-[#e6f7ef] text-[#27a768]"}`}>
                   {item.num}
                 </div>
                 <div>
@@ -83,10 +95,10 @@ export const AboutSystem: React.FC = () => {
                 </span>
               </div>
 
-              {/* 4 Feature Items */}
-              <div className="space-y-3.5 text-xs">
+              {/* Feature Items */}
+              <div className="flex flex-col gap-3.5 text-xs">
                 
-                <div className="flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+                <div className="order-3 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="w-9 h-9 rounded-xl bg-[#e6f7ef] text-[#27a768] flex items-center justify-center shrink-0">
                     <Bike className="h-5 w-5" />
                   </div>
@@ -96,7 +108,7 @@ export const AboutSystem: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+                <div className="order-4 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="w-9 h-9 rounded-xl bg-[#e6f7ef] text-[#27a768] flex items-center justify-center shrink-0">
                     <CreditCard className="h-5 w-5" />
                   </div>
@@ -106,7 +118,7 @@ export const AboutSystem: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+                <div className="order-5 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="w-9 h-9 rounded-xl bg-[#e6f7ef] text-[#27a768] flex items-center justify-center shrink-0">
                     <TrendingUp className="h-5 w-5" />
                   </div>
@@ -116,13 +128,33 @@ export const AboutSystem: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+                <div className="order-6 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="w-9 h-9 rounded-xl bg-[#e6f7ef] text-[#27a768] flex items-center justify-center shrink-0">
                     <Instagram className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="font-bold text-slate-900 text-sm">Link Personalizado para Bio do Instagram</div>
                     <div className="text-slate-600 text-[11px]">Página de alta conversão para bio do Insta integrada ao WhatsApp.</div>
+                  </div>
+                </div>
+
+                <div className="order-2 flex items-center gap-3 p-3.5 bg-[#f4fbf7] rounded-2xl border-2 border-[#27a768]/40 shadow-sm">
+                  <div className="w-9 h-9 rounded-xl bg-[#27a768] text-white flex items-center justify-center shrink-0">
+                    <Printer className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm">Comprovantes & Impressão automática</div>
+                    <div className="text-slate-600 text-[11px]">Emissão de comprovantes com impressão térmica automática em 58mm ou 80mm.</div>
+                  </div>
+                </div>
+
+                <div className="order-1 flex items-center gap-3 p-3.5 bg-[#f4fbf7] rounded-2xl border-2 border-[#27a768]/40 shadow-sm">
+                  <div className="w-9 h-9 rounded-xl bg-[#27a768] text-white flex items-center justify-center shrink-0">
+                    <ShoppingCart className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm">Venda no PDV Rápida e Fácil</div>
+                    <div className="text-slate-600 text-[11px]">Venda no balcão em poucos cliques com um PDV simples e ágil.</div>
                   </div>
                 </div>
 

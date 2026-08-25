@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Menu, X, LogIn } from "lucide-react";
+import { Menu, X, LogIn } from "lucide-react";
 
 interface HeaderProps {
   onOpenCheckout: (plan: "mensal" | "anual") => void;
@@ -35,19 +35,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-100 bg-white/95 backdrop-blur-md transition-all shadow-sm">
-      <div className="container flex h-16 sm:h-20 items-center justify-between px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
+    <header className="sticky top-0 z-50 w-full bg-background/95 font-body backdrop-blur-md transition-all">
+      <div className="flex h-[76px] items-center justify-between px-6 md:px-12 lg:px-20">
         {/* Official Brand Logo */}
         <a href="#" className="flex items-center gap-2 group">
           <img 
             src="/images/logo.png" 
             alt="LojaPOD Logo" 
-            className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-10 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <nav className="hidden items-center gap-8 text-sm text-muted-foreground lg:flex">
           <a
             href="#sobre"
             className={`hover:text-[#27a768] transition-colors ${
@@ -99,9 +99,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
             </Button>
           </a>
 
-          <Button 
+          <Button
             onClick={() => onOpenCheckout("mensal")}
-            className="hidden sm:flex font-bold shadow-sm rounded-xl bg-[#27a768] hover:bg-[#218f59] text-white border-0 px-5 text-sm h-11 transition-all cursor-pointer"
+            className="hidden h-10 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground shadow-none hover:bg-primary/90 sm:flex"
           >
             <span>Testar agora</span>
           </Button>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gantari:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,30 +6,33 @@
 
 @layer base {
   :root {
-    --background: 150 15% 98%;
-    --foreground: 215 25% 15%;
+    --background: 0 0% 100%;
+    --foreground: 210 14% 17%;
 
     --card: 0 0% 100%;
     --card-foreground: 215 25% 15%;
 
     /* ApexComercio Exact Emerald Green (#27a768) */
-    --primary: 151 62% 40%;
+    --primary: 210 14% 17%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 150 25% 96%;
-    --secondary-foreground: 151 62% 20%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 184 5% 55%;
 
-    --accent: 150 50% 95%;
-    --accent-foreground: 151 62% 25%;
+    --accent: 239 84% 67%;
+    --accent-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
+    --border: 0 0% 90%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 151 62% 40%;
+    --ring: 239 84% 67%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
+    --font-display: 'Instrument Serif', serif;
+    --font-body: 'Inter', sans-serif;
+    --shadow-dashboard: 0 25px 80px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -51,11 +54,11 @@
 
   body {
     @apply bg-[#F8FAF9] text-slate-800 antialiased selection:bg-[#27a768] selection:text-white min-h-screen overflow-x-hidden;
-    font-family: 'Gantari', 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Gantari', sans-serif;
+    font-family: 'Inter', sans-serif;
     @apply tracking-tight font-extrabold text-slate-900;
   }
 }

@@ -36,7 +36,7 @@ function getPlanFeatures(plan: PublicPlan, isPopular: boolean): string[] {
         "Suporte inicial por humano no WhatsApp",
         "Financeiro do Motoboy & Rotas no Mapa",
         "Módulo Contas a Pagar & Despesas",
-        "Impressão Térmica de Balcão (58mm & 80mm)",
+        "Comprovantes & Impressão automática",
         "Relatórios de fluxo de caixa e lucros",
       ];
     } else {
@@ -44,7 +44,7 @@ function getPlanFeatures(plan: PublicPlan, isPopular: boolean): string[] {
         "Módulo de Investimento & Aportes",
         "Link de Bio do Instagram com Alta Conversão",
         "Até 10 usuários com permissões avançadas",
-        "Impressão Térmica de Balcão (58mm & 80mm)",
+        "Comprovantes & Impressão automática",
         "Relatórios de métricas e ROI avançados",
       ];
     }

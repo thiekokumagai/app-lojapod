@@ -9,6 +9,7 @@ import { Footer } from "@/components/Footer";
 import { CheckoutModal } from "@/components/CheckoutModal";
 import { FloatingCta } from "@/components/FloatingCta";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { Toaster } from "sonner";
 
 export function App() {
@@ -25,10 +26,18 @@ export function App() {
       <Header onOpenCheckout={handleOpenCheckout} />
       <main className="flex-1">
         <Hero onOpenCheckout={handleOpenCheckout} />
-        <AboutSystem />
-        <GridFeatures />
-        <Pricing onOpenCheckout={handleOpenCheckout} />
-        <FAQ />
+        <ScrollReveal>
+          <AboutSystem />
+        </ScrollReveal>
+        <ScrollReveal direction="left">
+          <GridFeatures />
+        </ScrollReveal>
+        <ScrollReveal direction="right">
+          <Pricing onOpenCheckout={handleOpenCheckout} />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FAQ />
+        </ScrollReveal>
       </main>
       <Footer onOpenCheckout={handleOpenCheckout} />
 

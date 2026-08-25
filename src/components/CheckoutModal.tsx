@@ -137,7 +137,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     value={title}
                     onChange={handleTitleChange}
                     required
-                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-[#27a768] rounded-xl h-12 text-sm font-medium"
+                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-[#27a768] rounded-xl h-12 text-base sm:text-sm font-medium"
                   />
                   <Store className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
                 </div>
@@ -159,7 +159,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     placeholder="minhaloja"
                     value={subdomain}
                     onChange={handleSubdomainChange}
-                    className="pl-10 pr-32 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-[#27a768] rounded-xl h-12 text-sm font-mono"
+                    className="pl-10 pr-32 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-[#27a768] rounded-xl h-12 text-base sm:text-sm font-mono"
                   />
                   <Globe className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
                   <span className="absolute right-3 text-xs font-mono font-bold text-slate-400 pointer-events-none select-none">
@@ -181,7 +181,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     value={adminEmail}
                     onChange={(e) => setAdminEmail(e.target.value)}
                     required
-                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-[#27a768] rounded-xl h-12 text-sm"
+                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-[#27a768] rounded-xl h-12 text-base sm:text-sm"
                   />
                   <Mail className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
                 </div>
@@ -199,7 +199,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     placeholder="Crie sua senha de acesso"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-[#27a768] rounded-xl h-12 text-sm"
+                    className="pl-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-[#27a768] rounded-xl h-12 text-base sm:text-sm"
                   />
                   <Lock className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
                 </div>

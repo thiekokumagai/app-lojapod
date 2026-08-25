@@ -57,8 +57,8 @@ export const GridFeatures: React.FC = () => {
     },
     {
       icon: Printer,
-      title: "Comprovantes & Impressão",
-      desc: "Venda, emita e entregue a comanda térmica no balcão (58mm e 80mm) em segundos.",
+      title: "Comprovantes & Impressão automática",
+      desc: "Emita comprovantes e imprima automaticamente em impressoras térmicas de 58mm ou 80mm.",
     },
   ];
 

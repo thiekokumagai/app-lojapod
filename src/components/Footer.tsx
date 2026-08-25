@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => {
               />
             </div>
             <p className="text-slate-500 text-xs leading-relaxed max-w-sm">
-              Um sistema de gestão completo para você vender mais e se preocupar menos. Vendas, estoque, caixa, catálogo no WhatsApp, financeiro de motoboys com rotas no mapa, contas a pagar e módulo de investimentos.
+              Um sistema de gestão completo para você vender mais e se preocupar menos. Vendas, estoque, caixa, catálogo no WhatsApp, Comprovantes & Impressão automática, motoboys, contas a pagar e investimentos.
             </p>
           </div>
 
@@ -43,6 +43,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => {
               <li><span className="text-slate-600">Módulo de Investimento (ROI)</span></li>
               <li><span className="text-slate-600">Link para Bio do Instagram</span></li>
               <li><span className="text-slate-600">Catálogo Virtual & PDV</span></li>
+              <li><span className="text-slate-600">Comprovantes & Impressão automática</span></li>
             </ul>
           </div>
 

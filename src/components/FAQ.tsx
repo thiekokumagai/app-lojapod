@@ -5,7 +5,7 @@ export const FAQ: React.FC = () => {
   const faqItems = [
     {
       q: "Como funciona o Sistema de Gestão do LojaPOD?",
-      a: "O LojaPOD reúne catálogo online por sabores, pedidos no WhatsApp, PDV de balcão com impressão térmica, gestão de motoboys com rotas no mapa, contas a pagar e módulo de investimentos em uma só plataforma simples e inteligente."
+      a: "O LojaPOD reúne catálogo online por sabores, pedidos no WhatsApp, PDV de balcão, Comprovantes & Impressão automática, gestão de motoboys com rotas no mapa, contas a pagar e módulo de investimentos em uma só plataforma simples e inteligente."
     },
     {
       q: "Como funciona o cadastro e financeiro do Motoboy?",
