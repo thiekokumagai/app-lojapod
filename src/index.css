@@ -43,6 +43,9 @@
 
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   /* Prevent Mobile Safari Auto-Zoom on Input Focus */
@@ -54,7 +57,17 @@
 
   body {
     @apply bg-[#F8FAF9] text-slate-800 antialiased selection:bg-[#27a768] selection:text-white min-h-screen overflow-x-hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
     font-family: 'Inter', sans-serif;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

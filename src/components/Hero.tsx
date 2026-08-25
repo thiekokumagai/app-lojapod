@@ -25,15 +25,15 @@ const transactions = [
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => (
-  <section className="relative flex h-[calc(100svh-76px)] flex-col items-center overflow-hidden bg-background px-4 pt-8 text-foreground sm:pt-10">
+  <section className="relative flex h-[calc(100svh-76px)] w-full min-w-0 max-w-full flex-col items-center overflow-hidden bg-background px-4 pt-8 text-foreground sm:pt-10">
     <video className="absolute inset-0 z-0 h-full w-full object-cover" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260319_015952_e1deeb12-8fb7-4071-a42a-60779fc64ab6.mp4" autoPlay muted loop playsInline aria-hidden="true" />
     <div className="absolute inset-0 z-[1] bg-white/52" aria-hidden="true" />
-    <div className="relative z-10 flex w-full flex-col items-center">
+    <div className="relative z-10 flex w-full min-w-0 max-w-full flex-col items-center">
       <motion.div {...fadeUp(10, 0, 0.5)} className="mb-6 inline-flex items-center overflow-hidden rounded-full border border-emerald-100 bg-background font-body text-sm shadow-sm sm:text-base">
         <span className="rounded-full bg-[#e6f7ef] px-3 py-1.5 font-medium text-[#27a768]">Teste por 7 dias</span>
         <span className="px-3 py-1.5 text-foreground">é grátis, sem compromisso</span>
       </motion.div>
-      <motion.h1 {...fadeUp(16, 0.1)} className="max-w-3xl text-center font-display text-5xl leading-[0.95] tracking-tight text-foreground md:text-6xl lg:text-[5rem]">
+      <motion.h1 {...fadeUp(16, 0.1)} className="w-full max-w-3xl text-center font-display text-[2.65rem] leading-[0.98] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-[5rem]">
         O futuro de uma gestão <em className="font-normal">mais inteligente</em>
       </motion.h1>
       <motion.p {...fadeUp(16, 0.2)} className="mt-4 max-w-[650px] text-center font-body text-base leading-relaxed text-muted-foreground md:text-lg">

@@ -22,9 +22,9 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAF9] text-slate-800 flex flex-col antialiased pb-16 sm:pb-0">
+    <div className="flex min-h-screen w-full min-w-0 max-w-full flex-col overflow-x-hidden bg-[#F8FAF9] pb-16 text-slate-800 antialiased sm:pb-0">
       <Header onOpenCheckout={handleOpenCheckout} />
-      <main className="flex-1">
+      <main className="min-w-0 flex-1">
         <Hero onOpenCheckout={handleOpenCheckout} />
         <ScrollReveal>
           <AboutSystem />

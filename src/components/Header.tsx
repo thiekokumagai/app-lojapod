@@ -35,8 +35,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 font-body backdrop-blur-md transition-all">
-      <div className="flex h-[76px] items-center justify-between px-6 md:px-12 lg:px-20">
+    <header className="sticky top-0 z-50 w-full min-w-0 max-w-full overflow-x-hidden bg-background/95 font-body backdrop-blur-md transition-all">
+      <div className="flex h-[76px] w-full min-w-0 items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20">
         {/* Official Brand Logo */}
         <a href="#" className="flex items-center gap-2 group">
           <img 
