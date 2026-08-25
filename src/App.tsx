@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { ModuleSwapper } from "@/components/ModuleSwapper";
-import { FormulaBenefits } from "@/components/FormulaBenefits";
+import { AboutSystem } from "@/components/AboutSystem";
+import { GridFeatures } from "@/components/GridFeatures";
 import { Pricing } from "@/components/Pricing";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
@@ -21,12 +21,12 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col antialiased pb-16 sm:pb-0">
+    <div className="min-h-screen bg-[#F8FAF9] text-slate-800 flex flex-col antialiased pb-16 sm:pb-0">
       <Header onOpenCheckout={handleOpenCheckout} />
       <main className="flex-1">
         <Hero onOpenCheckout={handleOpenCheckout} />
-        <ModuleSwapper onOpenCheckout={handleOpenCheckout} />
-        <FormulaBenefits />
+        <AboutSystem />
+        <GridFeatures />
         <Pricing onOpenCheckout={handleOpenCheckout} />
         <FAQ />
       </main>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gantari:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,41 +6,30 @@
 
 @layer base {
   :root {
-    --background: 220 33% 98%;
-    --foreground: 222.2 84% 4.9%;
-
-    --text-secondary: 215.4 16.3% 46.9%;
-    --text-tertiary: 215 13.8% 62.4%;
+    --background: 150 15% 98%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 350 89% 52%;
+    /* ApexComercio Exact Emerald Green (#27a768) */
+    --primary: 151 62% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 150 25% 96%;
+    --secondary-foreground: 151 62% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 350 89% 52%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --accent: 150 50% 95%;
+    --accent-foreground: 151 62% 25%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 350 89% 52%;
+    --ring: 151 62% 40%;
 
-    --radius: 1.25rem;
-
-    --brand-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
-    --emerald-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --radius: 1rem;
   }
 }
 
@@ -61,85 +50,37 @@
   }
 
   body {
-    @apply bg-[#F8FAFC] text-slate-900 antialiased selection:bg-red-500 selection:text-white min-h-screen overflow-x-hidden;
-    font-family: 'Inter', sans-serif;
-    background-image: 
-      radial-gradient(at 50% 0%, rgba(239, 68, 68, 0.05) 0px, transparent 50%),
-      radial-gradient(at 100% 50%, rgba(16, 185, 129, 0.04) 0px, transparent 40%),
-      radial-gradient(at 0% 100%, rgba(239, 68, 68, 0.03) 0px, transparent 40%);
-    background-attachment: fixed;
+    @apply bg-[#F8FAF9] text-slate-800 antialiased selection:bg-[#27a768] selection:text-white min-h-screen overflow-x-hidden;
+    font-family: 'Gantari', 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Gantari', sans-serif;
     @apply tracking-tight font-extrabold text-slate-900;
   }
 }
 
 @layer utilities {
-  .text-gradient-fire {
-    background: linear-gradient(135deg, #0F172A 10%, #EF4444 60%, #DC2626 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .bg-apex-green {
+    background-color: #27a768;
+  }
+  .bg-apex-green-hover:hover {
+    background-color: #218f59;
+  }
+  .text-apex-green {
+    color: #27a768;
+  }
+  .bg-apex-pill {
+    background-color: #e6f7ef;
   }
 
-  .text-gradient-lime {
-    background: linear-gradient(135deg, #0F172A 10%, #65A30D 50%, #84CC16 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .apex-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px -2px rgba(39, 167, 104, 0.05);
+    border-radius: 1.25rem;
   }
 
-  .text-gradient-neon {
-    background: linear-gradient(135deg, #0F172A 0%, #16A34A 50%, #84CC16 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-emerald {
-    background: linear-gradient(135deg, #0F172A 20%, #10B981 70%, #059669 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .bg-brand-gradient {
-    background: var(--brand-gradient);
-  }
-
-  /* Clean SaaS High Conversion White Cards */
-  .glass-card-cro {
-    background: #FFFFFF;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05), 0 4px 12px -2px rgba(15, 23, 42, 0.02);
-  }
-
-  .glass-card-cro:hover {
-    border-color: rgba(239, 68, 68, 0.4);
-    box-shadow: 0 20px 40px -15px rgba(239, 68, 68, 0.12), 0 8px 20px -4px rgba(15, 23, 42, 0.06);
-    transform: translateY(-3px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .glow-red-button {
-    box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.35);
-  }
-  .glow-red-button:hover {
-    box-shadow: 0 15px 35px -5px rgba(239, 68, 68, 0.5);
-  }
-
-  .bg-grid-pattern-dark {
-    background-size: 32px 32px;
-    background-image: 
-      linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
-  }
-
-  /* Hide scrollbar utility */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -147,19 +88,4 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-}
-
-/* Ticker Marquee Animation */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  display: flex;
-  width: 200%;
-  animation: marquee 25s linear infinite;
-}
-.animate-marquee:hover {
-  animation-play-state: paused;
 }
