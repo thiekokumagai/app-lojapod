@@ -5,35 +5,23 @@ export const AboutSystem: React.FC = () => {
   const steps = [
     {
       num: 1,
-      title: "Fácil de usar & Cadastro Rápido",
-      desc: "Em 2 minutos sua conta está criada e você já pode cadastrar produtos, fornecedores e motoboys.",
+      title: "Crie sua conta",
+      desc: "Faça seu cadastro em menos de 2 minutos e acesse o sistema pelo celular ou computador.",
     },
     {
       num: 2,
-      title: "Venda no PDV Rápida e Fácil",
-      desc: "Registre vendas no balcão em poucos cliques com um PDV simples, ágil e intuitivo.",
-      featured: true,
+      title: "Cadastre seus produtos",
+      desc: "Adicione produtos, sabores, preços e estoque de forma rápida e organizada.",
     },
     {
       num: 3,
-      title: "Impressão Automática",
-      desc: "Emita comprovantes com impressão térmica automática nos tamanhos 58mm ou 80mm.",
-      featured: true,
+      title: "Configure sua operação",
+      desc: "Defina formas de pagamento, entregas, motoboys e as preferências da sua loja.",
     },
     {
       num: 4,
-      title: "Motoboy & Envio de Rotas no Mapa",
-      desc: "Cadastro e financeiro do entregador com envio de rota no mapa direto para Waze ou Google Maps.",
-    },
-    {
-      num: 5,
-      title: "Contas a Pagar & Investimentos",
-      desc: "Módulo completo de contas a pagar, controle de despesas e acompanhamento do capital investido.",
-    },
-    {
-      num: 6,
-      title: "Link para Bio do Instagram & Zap",
-      desc: "Gere seu link exclusivo para a bio do Instagram e receba pedidos organizados no WhatsApp.",
+      title: "Comece a vender",
+      desc: "Pronto: sua equipe já pode registrar vendas e acompanhar toda a operação em um só lugar.",
     },
   ];
 
@@ -51,21 +39,21 @@ export const AboutSystem: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            O que você precisa para usar:
+            Comece a vender em poucos minutos
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
-            Tudo o que você precisa fazer é criar a sua conta e usar o aplicativo. A interface foi criada para ser simples e eficiente, você pode acessar tanto pelo computador quanto pelo celular.
+            Configure sua loja em quatro passos simples. Depois, use todos os recursos pelo celular ou computador para cuidar da operação em um só lugar.
           </p>
         </div>
 
         {/* 2 Columns: Left Numbered Steps, Right Light Highlights Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: 4 Numbered Steps */}
+          {/* Left Column: Getting Started Steps */}
           <div className="lg:col-span-6 space-y-6">
             {steps.map((item) => (
-              <div key={item.num} className={`flex items-start gap-4 ${item.featured ? "rounded-2xl border border-emerald-200 bg-[#f4fbf7] p-4" : ""}`}>
-                <div className={`w-9 h-9 rounded-full font-bold flex items-center justify-center text-sm shrink-0 mt-0.5 ${item.featured ? "bg-[#27a768] text-white" : "bg-[#e6f7ef] text-[#27a768]"}`}>
+              <div key={item.num} className="flex items-start gap-4">
+                <div className="w-9 h-9 rounded-full bg-[#e6f7ef] text-[#27a768] font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">
                   {item.num}
                 </div>
                 <div>
