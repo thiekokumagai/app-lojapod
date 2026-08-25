@@ -1,5 +1,5 @@
 import React from "react";
-import { Bike, TrendingUp, CreditCard, Instagram, Printer, ShoppingCart } from "lucide-react";
+import { Bike, TrendingUp, CreditCard, Instagram, Printer, ShoppingCart, WalletCards } from "lucide-react";
 
 export const AboutSystem: React.FC = () => {
   const steps = [
@@ -86,7 +86,7 @@ export const AboutSystem: React.FC = () => {
               {/* Feature Items */}
               <div className="flex flex-col gap-3.5 text-xs">
                 
-                <div className="order-3 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+                <div className="order-4 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="w-9 h-9 rounded-xl bg-[#e6f7ef] text-[#27a768] flex items-center justify-center shrink-0">
                     <Bike className="h-5 w-5" />
                   </div>
@@ -96,7 +96,7 @@ export const AboutSystem: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="order-4 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+                <div className="order-5 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="w-9 h-9 rounded-xl bg-[#e6f7ef] text-[#27a768] flex items-center justify-center shrink-0">
                     <CreditCard className="h-5 w-5" />
                   </div>
@@ -106,7 +106,7 @@ export const AboutSystem: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="order-5 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+                <div className="order-6 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="w-9 h-9 rounded-xl bg-[#e6f7ef] text-[#27a768] flex items-center justify-center shrink-0">
                     <TrendingUp className="h-5 w-5" />
                   </div>
@@ -116,7 +116,7 @@ export const AboutSystem: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="order-6 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+                <div className="order-7 flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
                   <div className="w-9 h-9 rounded-xl bg-[#e6f7ef] text-[#27a768] flex items-center justify-center shrink-0">
                     <Instagram className="h-5 w-5" />
                   </div>
@@ -126,7 +126,7 @@ export const AboutSystem: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="order-2 flex items-center gap-3 p-3.5 bg-[#f4fbf7] rounded-2xl border-2 border-[#27a768]/40 shadow-sm">
+                <div className="order-3 flex items-center gap-3 p-3.5 bg-[#f4fbf7] rounded-2xl border-2 border-[#27a768]/40 shadow-sm">
                   <div className="w-9 h-9 rounded-xl bg-[#27a768] text-white flex items-center justify-center shrink-0">
                     <Printer className="h-5 w-5" />
                   </div>
@@ -143,6 +143,16 @@ export const AboutSystem: React.FC = () => {
                   <div>
                     <div className="font-bold text-slate-900 text-sm">Venda no PDV Rápida e Fácil</div>
                     <div className="text-slate-600 text-[11px]">Venda no balcão em poucos cliques com um PDV simples e ágil.</div>
+                  </div>
+                </div>
+
+                <div className="order-2 flex items-center gap-3 p-3.5 bg-[#f4fbf7] rounded-2xl border-2 border-[#27a768]/40 shadow-sm">
+                  <div className="w-9 h-9 rounded-xl bg-[#27a768] text-white flex items-center justify-center shrink-0">
+                    <WalletCards className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm">Módulo de Caixa</div>
+                    <div className="text-slate-600 text-[11px]">Controle de abertura, fechamento, entradas, saídas e saldo do caixa.</div>
                   </div>
                 </div>
 
