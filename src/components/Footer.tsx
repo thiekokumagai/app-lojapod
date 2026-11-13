@@ -39,6 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => (
             <div className="mb-4 font-medium text-white">Recursos</div>
             <ul className="space-y-3 text-[var(--lp-muted)]">
               <li>PDV e catálogo</li>
+              <li>3 temas de catálogo</li>
               <li>Estoque e caixa</li>
               <li>Motoboys e rotas</li>
               <li>Contas a pagar</li>

@@ -16,6 +16,7 @@ const included = [
   "Módulo de investimento e ROI",
   "Motoboys, taxas e rotas no mapa",
   "Catálogo online e link para a bio do Instagram",
+  "3 temas para o catálogo, com as cores da sua marca",
   "Cartão fidelidade: selos, cashback, pontos e mais",
   "Avise-me quando chegar",
   "Combos, Peça também e cupons de desconto",

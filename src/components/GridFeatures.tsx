@@ -1,5 +1,6 @@
 import React from "react";
 import { Check, CreditCard, MapPin, Printer, TrendingUp, Wallet } from "lucide-react";
+import { CatalogThemes } from "@/components/CatalogThemes";
 
 const payments = ["Pix", "Cartão de crédito", "Cartão de débito", "Dinheiro", "Pedido no WhatsApp", "Venda no balcão"];
 
@@ -178,6 +179,11 @@ export const GridFeatures: React.FC = () => (
               <div className="mt-1 text-[#141414]/60">Pix · Venda #1048</div>
             </div>
           </div>
+        </li>
+
+        {/* Temas do catálogo (interativo) */}
+        <li className="lp-card min-h-[340px] md:col-span-6 xl:col-span-12">
+          <CatalogThemes />
         </li>
       </ul>
 

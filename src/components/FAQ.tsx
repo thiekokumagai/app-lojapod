@@ -32,6 +32,10 @@ export const FAQ: React.FC = () => {
       a: "Sim. Você cria combos com preço especial e usa o \"Peça também\" para sugerir um produto na sacola, com preço exclusivo, de acordo com o produto ou a categoria escolhida pelo cliente."
     },
     {
+      q: "Posso mudar a aparência do meu catálogo?",
+      a: "Sim. No painel você escolhe entre 3 temas (Classic, Menu Express e Urban) e define a cor principal e a cor dos preços com as cores da sua marca. Dá para trocar quando quiser."
+    },
+    {
       q: "Quanto custa?",
       a: "R$ 150 por mês, com todos os recursos inclusos. Antes, você testa por 7 dias grátis."
     },
