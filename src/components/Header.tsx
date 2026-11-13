@@ -42,16 +42,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    // Trava a rolagem no <html>: travar no <body> quebra o header sticky
+    // (com o html em overflow-x: clip, o body vira o container de rolagem)
+    const root = document.documentElement;
+    root.style.overflow = isMenuOpen ? "hidden" : "";
     return () => {
-      document.body.style.overflow = "";
+      root.style.overflow = "";
     };
   }, [isMenuOpen]);
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 w-full transition-colors duration-300 ${
-        scrolled || isMenuOpen ? "bg-[#141414]/80 backdrop-blur-xl" : "bg-transparent"
+        isMenuOpen ? "bg-[#141414]" : scrolled ? "bg-[#141414]/80 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <div className="lp-container grid min-h-[68px] grid-cols-[auto_1fr_auto] items-center gap-3 py-3 lg:min-h-[76px] lg:grid-cols-[1fr_auto_1fr] lg:gap-6">
@@ -117,10 +121,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
           </button>
         </div>
       </div>
+    </header>
 
-      {/* Menu mobile em folha */}
+      {/* Menu mobile em folha: fica fora do <header> porque o backdrop-filter do header
+          vira referência para filhos "fixed" e o painel ficava com altura zero */}
       {isMenuOpen && (
-        <div className="fixed inset-x-0 bottom-0 top-[68px] z-40 overflow-y-auto bg-[#141414] lg:hidden">
+        <div className="fixed inset-x-0 bottom-0 top-[68px] z-[45] overflow-y-auto overscroll-contain bg-[#141414] lg:hidden">
           <nav className="lp-container flex flex-col py-6" aria-label="Menu do site">
             {navItems.map(({ id, label }, index) => (
               <a
@@ -152,7 +158,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 };
 
