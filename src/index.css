@@ -1,38 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 14% 17%;
+    /* Tema escuro inspirado no layout openbot.run, com o verde LojaPod como acento */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card: 0 0% 13%;
+    --card-foreground: 0 0% 100%;
 
-    /* ApexComercio Exact Emerald Green (#27a768) */
-    --primary: 210 14% 17%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 94%;
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 184 5% 55%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 240 2% 59%;
 
-    --accent: 239 84% 67%;
+    --accent: 151 62% 40%;
     --accent-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 239 84% 67%;
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.12;
+    --ring: 151 62% 40%;
 
-    --radius: 0.5rem;
-    --font-display: 'Instrument Serif', serif;
+    --radius: 0.75rem;
+    --font-display: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
-    --shadow-dashboard: 0 25px 80px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06);
+
+    /* Tokens do layout */
+    --lp-bg: #141414;
+    --lp-canvas: #1a1a1a;
+    --lp-surface: #212121;
+    --lp-surface-raised: #262626;
+    --lp-text: #ffffff;
+    --lp-text-2: #dcdcdc;
+    --lp-muted: #979797;
+    --lp-line: rgba(255, 255, 255, 0.08);
+    --lp-line-strong: rgba(255, 255, 255, 0.16);
+    --lp-light: #f0f0f0;
+    --lp-on-light: #141414;
+    --lp-green: #27a768;
+    --lp-lime: #8bd43a;
+    --lp-lilac: #d6adf2;
+    --lp-mint: #61c985;
+    --lp-gold: #e3b866;
+    --lp-sky: #74b9ff;
   }
 }
 
@@ -45,10 +61,11 @@
     scroll-behavior: smooth;
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
+    background: var(--lp-bg);
+    color-scheme: dark;
   }
 
-  /* Prevent Mobile Safari Auto-Zoom on Input Focus */
   @media screen and (max-width: 768px) {
     input, select, textarea {
       font-size: 16px !important;
@@ -56,52 +73,165 @@
   }
 
   body {
-    @apply bg-[#F8FAF9] text-slate-800 antialiased selection:bg-[#27a768] selection:text-white min-h-screen overflow-x-hidden;
+    @apply antialiased min-h-screen;
+    overflow-x: clip;
+    background: var(--lp-bg);
+    color: var(--lp-text);
     width: 100%;
     max-width: 100%;
     margin: 0;
     font-family: 'Inter', sans-serif;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    background: var(--lp-green);
+    color: #fff;
   }
 
   #root {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', sans-serif;
-    @apply tracking-tight font-extrabold text-slate-900;
+    color: var(--lp-text);
+  }
+}
+
+@layer components {
+  .lp-container {
+    width: min(100%, 1280px);
+    margin-inline: auto;
+    padding-inline: clamp(16px, 4vw, 48px);
+  }
+
+  /* Botões */
+  .lp-btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium transition-colors;
+    height: 44px;
+    padding-inline: 20px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .lp-btn-sm {
+    height: 36px;
+    padding-inline: 14px;
+    font-size: 14px;
+  }
+  .lp-btn-primary {
+    background: var(--lp-light);
+    color: var(--lp-on-light);
+  }
+  .lp-btn-primary:hover {
+    background: #fff;
+  }
+  .lp-glass {
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    background: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      inset 0 1px rgba(255, 255, 255, 0.22),
+      inset 0 -1px rgba(255, 255, 255, 0.04),
+      0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  }
+  .lp-btn-glass {
+    color: var(--lp-text);
+  }
+  .lp-btn-glass:hover {
+    background: linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
+  }
+
+  /* Títulos de seção */
+  .lp-heading h2 {
+    letter-spacing: -0.055em;
+    font-size: clamp(38px, 5vw, 64px);
+    font-weight: 500;
+    line-height: 1;
+    text-wrap: balance;
+  }
+  .lp-heading p {
+    max-width: 620px;
+    color: var(--lp-text-2);
+    margin-top: 22px;
+    font-size: clamp(16px, 1.8vw, 19px);
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
+  /* Cards do bento */
+  .lp-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 28px;
+    border: 1px solid var(--lp-line);
+    background: var(--lp-surface);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
+    transition: border-color 0.2s, background-color 0.2s;
+  }
+  .lp-card:hover {
+    border-color: var(--lp-line-strong);
+    background: var(--lp-surface-raised);
+  }
+  .lp-card h3 {
+    letter-spacing: -0.035em;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  .lp-card p {
+    max-width: 44ch;
+    color: var(--lp-text-2);
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Grade de fundo usada nos cards coloridos */
+  .lp-grid-bg {
+    background-image:
+      linear-gradient(rgba(20, 20, 20, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 20, 20, 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -1px -1px;
   }
 }
 
 @layer utilities {
-  .bg-apex-green {
-    background-color: #27a768;
-  }
-  .bg-apex-green-hover:hover {
-    background-color: #218f59;
-  }
-  .text-apex-green {
-    color: #27a768;
-  }
-  .bg-apex-pill {
-    background-color: #e6f7ef;
-  }
-
-  .apex-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 20px -2px rgba(39, 167, 104, 0.05);
-    border-radius: 1.25rem;
-  }
-
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .lp-marquee {
+    animation: lp-marquee 28s linear infinite;
+  }
+  .lp-marquee-reverse {
+    animation: lp-marquee 28s linear infinite reverse;
+  }
+  @keyframes lp-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .lp-fade-x {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lp-marquee, .lp-marquee-reverse {
+      animation: none;
+    }
   }
 }

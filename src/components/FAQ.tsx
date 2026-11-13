@@ -20,6 +20,22 @@ export const FAQ: React.FC = () => {
       a: "Com certeza! O LojaPOD gera uma página de links personalizada para colocar na bio do Instagram da sua loja, onde os clientes acessam o catálogo, WhatsApp e redes sociais com máxima taxa de conversão."
     },
     {
+      q: "Como funciona o Cartão Fidelidade?",
+      a: "Você escolhe a estratégia: selos que viram brinde, cashback, pontos que viram desconto, desconto progressivo ou um modelo híbrido. Os selos e pontos são registrados nas compras e o cliente acompanha o progresso."
+    },
+    {
+      q: "O que é o \"Avise-me quando chegar\"?",
+      a: "Quando um produto está esgotado, o cliente pede no catálogo para ser avisado. Assim que o item volta ao estoque, ele recebe uma notificação e você não perde a venda."
+    },
+    {
+      q: "Posso montar combos e sugerir produtos na sacola?",
+      a: "Sim. Você cria combos com preço especial e usa o \"Peça também\" para sugerir um produto na sacola, com preço exclusivo, de acordo com o produto ou a categoria escolhida pelo cliente."
+    },
+    {
+      q: "Quanto custa?",
+      a: "R$ 150 por mês, com todos os recursos inclusos. Antes, você testa por 7 dias grátis."
+    },
+    {
       q: "É possível usar o Sistema de Gestão em vários dispositivos?",
       a: "Sim! Você e sua equipe podem acessar o LojaPOD ao mesmo tempo pelo celular, tablet ou computador de qualquer lugar."
     },
@@ -30,50 +46,25 @@ export const FAQ: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 bg-[#F8FAF9] border-b border-slate-100">
-      <div className="container px-4 md:px-8 max-w-6xl mx-auto">
-        
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Left Column matching Image 5 */}
-          <div className="lg:col-span-5 space-y-4">
-            {/* Top Badge Pill */}
-            <div className="inline-flex items-center gap-2 bg-white border border-slate-200/90 rounded-full px-3 py-1 text-xs shadow-xs">
-              <span className="bg-[#e6f7ef] text-[#27a768] font-bold px-2 py-0.5 rounded-full">
-                FAQ
-              </span>
-              <span className="text-slate-600 font-medium">
-                respostas para perguntas frequentes
-              </span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Ficou com alguma dúvida sobre o LojaPOD?
-            </h2>
-
-            <p className="text-base text-slate-600 leading-relaxed font-normal">
-              Encontre aqui as respostas que você precisa, na hora. Tudo explicado de um jeito simples, para você não perder tempo.
-            </p>
-          </div>
-
-          {/* Right Column: Accordion Items matching Image 5 */}
-          <div className="lg:col-span-7">
-            <Accordion type="single" collapsible className="w-full space-y-3">
-              {faqItems.map((item, idx) => (
-                <AccordionItem key={idx} value={`item-${idx}`} className="bg-white rounded-2xl px-6 border border-slate-200/90 shadow-sm overflow-hidden">
-                  <AccordionTrigger className="hover:no-underline font-bold text-slate-900 py-4 text-left text-sm sm:text-base hover:text-[#27a768] transition-colors">
-                    {item.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-slate-600 text-xs sm:text-sm leading-relaxed pb-4 font-normal">
-                    {item.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-
+    <section id="faq" className="py-[clamp(64px,8vw,120px)]">
+      <div className="lp-container grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div className="lp-heading lg:sticky lg:top-28 lg:self-start">
+          <h2>Perguntas</h2>
+          <p>Respostas curtas sobre o sistema, entregas, financeiro e o teste grátis.</p>
         </div>
 
+        <Accordion type="single" collapsible className="w-full border-t border-white/[0.08]">
+          {faqItems.map((item, idx) => (
+            <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-white/[0.08] py-1">
+              <AccordionTrigger className="py-5 text-[17px] font-medium tracking-tight text-white hover:no-underline">
+                {item.q}
+              </AccordionTrigger>
+              <AccordionContent className="max-w-[62ch] text-[15px] leading-relaxed text-[var(--lp-text-2)]">
+                {item.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );
