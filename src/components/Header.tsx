@@ -128,13 +128,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
       {isMenuOpen && (
         <div className="fixed inset-x-0 bottom-0 top-[68px] z-[45] overflow-y-auto overscroll-contain bg-[#141414] lg:hidden">
           <nav className="lp-container flex flex-col py-6" aria-label="Menu do site">
-            {navItems.map(({ id, label }, index) => (
+            {navItems.map(({ id, label }) => (
               <a
                 key={id}
                 href={`#${id}`}
                 onClick={() => setIsMenuOpen(false)}
-                className="animate-in fade-in slide-in-from-bottom-2 border-b border-white/[0.08] py-4 text-2xl font-medium tracking-tight text-white fill-mode-backwards"
-                style={{ animationDelay: `${index * 40}ms` }}
+                className="border-b border-white/[0.08] py-4 text-2xl font-medium tracking-tight text-white"
               >
                 {label}
               </a>
