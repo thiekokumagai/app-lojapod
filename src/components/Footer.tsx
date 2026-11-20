@@ -1,14 +1,15 @@
 import React from "react";
+import { getAdminUrl } from "@/lib/api";
 
 interface FooterProps {
   onOpenCheckout: (plan: "mensal" | "anual") => void;
 }
 
-const ADMIN_URL = import.meta.env.VITE_ADMIN_URL || "http://localhost:5174";
-
 const linkClass = "text-[var(--lp-muted)] transition-colors hover:text-white";
 
-export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => (
+export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => {
+  const ADMIN_URL = getAdminUrl();
+  return (
   <footer className="border-t border-white/[0.06] bg-[#1a1a1a] pb-10 pt-[clamp(56px,7vw,96px)] text-sm">
     <div className="lp-container">
       <div className="grid gap-16 md:grid-cols-[0.8fr_1.2fr] md:gap-[clamp(56px,8vw,112px)]">
@@ -70,6 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => (
       </div>
     </div>
   </footer>
-);
+  );
+};
 
 export default Footer;

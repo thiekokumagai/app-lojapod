@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { getAdminUrl } from "@/lib/api";
 
 interface HeaderProps {
   onOpenCheckout: (plan: "mensal" | "anual") => void;
 }
-
-const ADMIN_URL = import.meta.env.VITE_ADMIN_URL || "http://localhost:5174";
 
 const navItems = [
   { id: "sobre", label: "Como funciona" },
@@ -20,6 +19,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
   const [activeSection, setActiveSection] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const ADMIN_URL = getAdminUrl();
 
   useEffect(() => {
     const handleScroll = () => {

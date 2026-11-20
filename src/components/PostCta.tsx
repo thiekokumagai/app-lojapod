@@ -1,13 +1,14 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import { getAdminUrl } from "@/lib/api";
 
 interface PostCtaProps {
   onOpenCheckout: (plan: "mensal" | "anual") => void;
 }
 
-const ADMIN_URL = import.meta.env.VITE_ADMIN_URL || "http://localhost:5174";
-
-export const PostCta: React.FC<PostCtaProps> = ({ onOpenCheckout }) => (
+export const PostCta: React.FC<PostCtaProps> = ({ onOpenCheckout }) => {
+  const ADMIN_URL = getAdminUrl();
+  return (
   <section className="relative mt-[clamp(32px,6vw,80px)] grid min-h-[560px] place-items-center overflow-hidden text-center sm:min-h-[620px]">
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
       <div
@@ -49,6 +50,7 @@ export const PostCta: React.FC<PostCtaProps> = ({ onOpenCheckout }) => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default PostCta;

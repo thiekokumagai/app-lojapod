@@ -8,7 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { registerTrialStore } from "@/lib/api";
+import { getAdminUrl, getStoreDomainSuffix, registerTrialStore } from "@/lib/api";
 import { toast } from "sonner";
 import { 
   CheckCircle2, 
@@ -96,7 +96,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     onClose();
   };
 
-  const adminUrl = import.meta.env.VITE_ADMIN_URL || "https://admin.lojapod.com.br";
+  const adminUrl = getAdminUrl();
+  const domainSuffix = getStoreDomainSuffix();
 
   return (
     <Dialog open={isOpen} onOpenChange={handleReset}>
@@ -150,7 +151,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     Link da sua Loja (URL)
                   </Label>
                   <span className="text-[11px] text-slate-400 font-mono">
-                    {subdomain ? `${subdomain}.lojapod.com.br` : 'sualoja.lojapod.com.br'}
+                    {subdomain ? `${subdomain}.${domainSuffix}` : `sualoja.${domainSuffix}`}
                   </span>
                 </div>
                 <div className="relative flex items-center">
@@ -163,7 +164,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   />
                   <Globe className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
                   <span className="absolute right-3 text-xs font-mono font-bold text-slate-400 pointer-events-none select-none">
-                    .lojapod.com.br
+                    .{domainSuffix}
                   </span>
                 </div>
               </div>
@@ -241,7 +242,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               <div className="p-4 bg-slate-50 rounded-2xl border text-left text-xs space-y-2 font-mono">
                 <div className="flex justify-between">
                   <span className="text-slate-500">Subdomínio:</span>
-                  <span className="font-bold text-slate-900">{createdStore.subdomain || subdomain}.lojapod.com.br</span>
+                  <span className="font-bold text-slate-900">{createdStore.subdomain || subdomain}.{domainSuffix}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">E-mail Admin:</span>
