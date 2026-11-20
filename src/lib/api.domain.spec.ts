@@ -2,24 +2,23 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { getAdminUrl, getApiBaseUrl, getPlatformBaseDomain, getStoreDomainSuffix } from "./api";
 
 describe("app-lojapod: resolução de múltiplos domínios-base (podipedir.com.br e lojapod.com)", () => {
-  const originalLocation = window.location;
+  const originalWindow = (globalThis as any).window;
 
   function mockLocation(hostname: string) {
-    Object.defineProperty(window, "location", {
-      configurable: true,
-      value: {
-        ...originalLocation,
+    (globalThis as any).window = {
+      location: {
         hostname,
         protocol: "https:",
       },
-    });
+    };
   }
 
   afterEach(() => {
-    Object.defineProperty(window, "location", {
-      configurable: true,
-      value: originalLocation,
-    });
+    if (originalWindow === undefined) {
+      delete (globalThis as any).window;
+    } else {
+      (globalThis as any).window = originalWindow;
+    }
     vi.unstubAllEnvs();
   });
 
