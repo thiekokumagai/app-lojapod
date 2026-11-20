@@ -95,7 +95,7 @@ export const FormulaBenefits: React.FC = () => {
 
                 {/* Card Footer Line */}
                 <div className="pt-4 border-t border-emerald-900/60 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                  <span>Padrão Lojapod</span>
+                  <span>Padrão Podi Pedir</span>
                   <span className="text-[#00df82] font-bold">100% Otimizado</span>
                 </div>
               </div>

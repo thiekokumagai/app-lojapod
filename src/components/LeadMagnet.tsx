@@ -37,7 +37,7 @@ export const LeadMagnet: React.FC<LeadMagnetProps> = ({ onOpenCheckout }) => {
           {/* Top Tag */}
           <div className="inline-flex items-center gap-2 rounded-full border border-lime-400/30 bg-lime-400/10 px-4 py-1.5 text-xs font-mono font-bold text-lime-400">
             <Gift className="h-4 w-4" />
-            <span className="uppercase tracking-widest">OFERTA DE BOAS-VINDAS LOJAPOD</span>
+            <span className="uppercase tracking-widest">OFERTA DE BOAS-VINDAS PODI PEDIR</span>
           </div>
 
           {/* Headline */}

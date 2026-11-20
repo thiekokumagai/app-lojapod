@@ -53,7 +53,7 @@ export const BusinessExperience: React.FC<BusinessExperienceProps> = ({ onOpenCh
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-900 bg-slate-950 px-4 py-1.5 text-xs font-mono font-bold text-lime-400">
             <Sparkles className="h-3.5 w-3.5" />
-            <span className="uppercase tracking-widest">EXPERIMENTE O LOJAPOD</span>
+            <span className="uppercase tracking-widest">EXPERIMENTE O PODI PEDIR</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold uppercase font-space tracking-tight text-slate-900">
             DO BALCÃO AO ATACADO, <span className="text-red-600">SUA OPERAÇÃO CONECTADA</span>

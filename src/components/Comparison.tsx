@@ -65,11 +65,11 @@ export const Comparison: React.FC = () => {
             <div className="col-span-4">RECURSO / PROCESSO</div>
             <div className="col-span-4 text-red-600 flex items-center gap-1.5 font-bold">
               <XCircle className="h-4 w-4 text-red-500" />
-              <span>SEM O LOJAPOD</span>
+              <span>SEM O PODI PEDIR</span>
             </div>
             <div className="col-span-4 text-emerald-700 flex items-center gap-1.5 font-bold">
               <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-              <span>COM O LOJAPOD PRO</span>
+              <span>COM O PODI PEDIR PRO</span>
             </div>
           </div>
 

@@ -43,7 +43,7 @@ export const SocialFeed: React.FC = () => {
             LOJAS QUE ESTÃO <span className="text-red-600">DOMINANDO O MERCADO</span>
           </h2>
           <p className="text-slate-600 font-mono text-sm sm:text-base">
-            Siga <strong className="text-slate-900">@lojapod.br</strong> no Instagram e veja casos de sucesso reais.
+            Siga <strong className="text-slate-900">@podipedir.br</strong> no Instagram e veja casos de sucesso reais.
           </p>
         </div>
 
