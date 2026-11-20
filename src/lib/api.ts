@@ -1,11 +1,11 @@
 export function getPlatformBaseDomain(): "podipedir.com.br" | "lojapod.com" {
   if (typeof window !== "undefined" && window.location?.hostname) {
     const host = window.location.hostname.toLowerCase();
-    if (host === "podipedir.com.br" || host.endsWith(".podipedir.com.br")) {
-      return "podipedir.com.br";
+    if (host === "lojapod.com" || host.endsWith(".lojapod.com")) {
+      return "lojapod.com";
     }
   }
-  return "lojapod.com";
+  return "podipedir.com.br";
 }
 
 export function getStoreDomainSuffix(): string {
@@ -15,24 +15,36 @@ export function getStoreDomainSuffix(): string {
 export function getAdminUrl(): string {
   if (typeof window !== "undefined" && window.location?.hostname) {
     const host = window.location.hostname.toLowerCase();
-    if (host === "podipedir.com.br" || host.endsWith(".podipedir.com.br")) {
-      return "https://admin.podipedir.com.br";
-    }
     if (host === "lojapod.com" || host.endsWith(".lojapod.com")) {
       return "https://admin.lojapod.com";
     }
+    if (host === "podipedir.com.br" || host.endsWith(".podipedir.com.br")) {
+      return "https://admin.podipedir.com.br";
+    }
   }
-  return import.meta.env.VITE_ADMIN_URL || "https://admin.lojapod.com";
+  const envUrl = import.meta.env.VITE_ADMIN_URL || "https://admin.podipedir.com.br";
+  return envUrl
+    .replace("admin.lojapod.com.br", "admin.podipedir.com.br")
+    .replace("admin.lojapod.com", "admin.podipedir.com.br");
 }
 
 export function getApiBaseUrl(): string {
   let base =
     import.meta.env.VITE_API_URL ||
     import.meta.env.VITE_ADMIN_API ||
-    "http://localhost:3000/api";
+    "https://api.podipedir.com.br/api";
 
   if (typeof window !== "undefined" && window.location?.hostname) {
     const host = window.location.hostname.toLowerCase();
+    if (host === "lojapod.com" || host.endsWith(".lojapod.com")) {
+      if (base.includes("api.podipedir.com.br")) {
+        return base.replace("api.podipedir.com.br", "api.lojapod.com");
+      }
+      if (base.includes("localhost")) {
+        return "https://api.lojapod.com/api";
+      }
+      return base;
+    }
     if (host === "podipedir.com.br" || host.endsWith(".podipedir.com.br")) {
       if (base.includes("api.lojapod.com")) {
         return base.replace("api.lojapod.com", "api.podipedir.com.br");
@@ -40,17 +52,11 @@ export function getApiBaseUrl(): string {
       if (base.includes("localhost")) {
         return "https://api.podipedir.com.br/api";
       }
-    } else if (host === "lojapod.com" || host.endsWith(".lojapod.com")) {
-      if (base.includes("api.podipedir.com.br")) {
-        return base.replace("api.podipedir.com.br", "api.lojapod.com");
-      }
-      if (base.includes("localhost")) {
-        return "https://api.lojapod.com/api";
-      }
+      return base;
     }
   }
 
-  return base;
+  return base.replace("api.lojapod.com", "api.podipedir.com.br");
 }
 
 export interface PublicPlan {
