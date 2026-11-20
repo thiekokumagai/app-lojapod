@@ -146,7 +146,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => (
         <div className="pointer-events-none select-none overflow-hidden rounded-2xl border border-white/[0.06] bg-[#1a1a1a] text-left text-[11px] text-white">
           <div className="flex h-12 items-center gap-5 border-b border-white/[0.07] px-4">
             <div className="flex items-center gap-2 font-semibold">
-              <img src="/logo.png" alt="" className="h-7 w-7 object-contain" />
+              <img src="/podipedir-icon.png" alt="" className="h-7 w-7 object-contain" />
               Podipedir <ChevronDown className="h-3 w-3 text-white/50" />
             </div>
             <div className="hidden h-8 max-w-xs flex-1 items-center gap-2 rounded-lg bg-white/[0.05] px-3 text-white/50 sm:flex">

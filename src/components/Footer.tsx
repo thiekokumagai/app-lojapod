@@ -13,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => (
     <div className="lp-container">
       <div className="grid gap-16 md:grid-cols-[0.8fr_1.2fr] md:gap-[clamp(56px,8vw,112px)]">
         <div>
-          <img src="/images/logo.png" alt="Podipedir" className="h-11 w-auto object-contain" />
+          <img src="/images/podipedir-logo.png" alt="Podipedir" className="h-11 w-auto object-contain" />
           <p className="mt-5 max-w-sm leading-relaxed text-[var(--lp-text-2)]">
             Sistema de gestão para lojas, restaurantes, delivery e vape shops. Vendas, estoque, caixa, catálogo no WhatsApp, entregas
             e impressão automática. Simples e inteligente.

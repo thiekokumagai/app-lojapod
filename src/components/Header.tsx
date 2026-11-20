@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCheckout }) => {
     >
       <div className="lp-container grid min-h-[68px] grid-cols-[auto_1fr_auto] items-center gap-3 py-3 lg:min-h-[76px] lg:grid-cols-[1fr_auto_1fr] lg:gap-6">
         <a href="#" className="flex items-center" aria-label="Podipedir início">
-          <img src="/images/logo.png" alt="Podipedir" className="h-9 w-auto object-contain lg:h-10" />
+          <img src="/images/podipedir-logo.png" alt="Podipedir" className="h-9 w-auto object-contain lg:h-10" />
         </a>
 
         {/* Navegação central em pílula */}
