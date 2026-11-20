@@ -121,7 +121,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => (
       >
         Vendas, estoque, caixa, catálogo no WhatsApp, entregas com motoboy e{" "}
         <span className="whitespace-nowrap rounded-md bg-white/[0.06] px-1.5 py-0.5 text-white">impressão automática</span> em
-        um só sistema. Feito para lojas, vapes, pods e tabacarias.
+        um só sistema. Feito para lojas, restaurantes, delivery, vape shops e qualquer negócio que vende.
       </motion.p>
 
       <motion.div {...line(0.24)} className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -141,13 +141,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCheckout }) => (
       transition={{ duration: 1, delay: 0.35, ease }}
       className="lp-container pb-8"
     >
-      <h2 className="sr-only">Prévia do painel LojaPod</h2>
+      <h2 className="sr-only">Prévia do painel Podipedir</h2>
       <div className="mx-auto max-w-[1120px] rounded-[22px] border border-white/10 bg-white/[0.04] p-2 shadow-[0_40px_120px_-30px_rgba(0,0,0,.9)] backdrop-blur sm:p-3">
         <div className="pointer-events-none select-none overflow-hidden rounded-2xl border border-white/[0.06] bg-[#1a1a1a] text-left text-[11px] text-white">
           <div className="flex h-12 items-center gap-5 border-b border-white/[0.07] px-4">
             <div className="flex items-center gap-2 font-semibold">
-              <span className="grid h-7 w-7 place-items-center rounded-lg bg-[var(--lp-green)] text-xs">L</span>
-              LojaPod <ChevronDown className="h-3 w-3 text-white/50" />
+              <img src="/logo.png" alt="" className="h-7 w-7 object-contain" />
+              Podipedir <ChevronDown className="h-3 w-3 text-white/50" />
             </div>
             <div className="hidden h-8 max-w-xs flex-1 items-center gap-2 rounded-lg bg-white/[0.05] px-3 text-white/50 sm:flex">
               <Search className="h-3.5 w-3.5" /> Buscar

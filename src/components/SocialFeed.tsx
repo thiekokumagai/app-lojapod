@@ -16,7 +16,7 @@ const FEED_CARDS = [
     metric: "R$ 68.000/Mês",
     tag: "Balcão & Zap",
     image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=600&q=80",
-    quote: "Nossos clientes amam selecionar os sabores e o teor de nicotina direto no catálogo virtual do LojaPod."
+    quote: "Nossos clientes amam selecionar os sabores e o teor de nicotina direto no catálogo virtual do Podipedir."
   },
   {
     storeName: "Ignite & Vapes Atacado",

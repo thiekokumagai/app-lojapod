@@ -9,7 +9,7 @@ const PRICE = "R$ 150";
 
 const included = [
   "PDV de balcão e pedidos no WhatsApp",
-  "Cadastro de produtos, sabores e variantes",
+  "Cadastro de produtos, variações e adicionais",
   "Controle de estoque em tempo real",
   "Controle de caixa e relatórios",
   "Contas a pagar e despesas",
@@ -42,7 +42,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenCheckout }) => (
         <div className="flex flex-col justify-between gap-10 bg-[var(--lp-light)] p-8 text-[#141414] sm:p-10">
           <div>
             <span className="inline-flex rounded-full bg-[#141414] px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-white">
-              Plano LojaPod
+              Plano Podipedir
             </span>
             <div className="mt-8 flex items-baseline gap-2">
               <span className="text-[clamp(64px,9vw,104px)] font-medium leading-none tracking-[-0.06em]">{PRICE}</span>

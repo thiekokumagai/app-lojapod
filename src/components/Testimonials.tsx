@@ -7,7 +7,7 @@ export const Testimonials: React.FC = () => {
     {
       name: "Rafael Mendes",
       store: "Vape Lounge SP",
-      text: "Antes do LojaPod os clientes se perdiam nos grupos de WhatsApp perguntando sabores. Hoje eles montam o carrinho no site e nos enviam pronto. O tempo de atendimento caiu de 10 minutos para 30 segundos!",
+      text: "Antes do Podipedir os clientes se perdiam nos grupos de WhatsApp perguntando sabores. Hoje eles montam o carrinho no site e nos enviam pronto. O tempo de atendimento caiu de 10 minutos para 30 segundos!",
       rating: 5,
       avatar: "RM"
     },
@@ -41,7 +41,7 @@ export const Testimonials: React.FC = () => {
           </h2>
 
           <p className="text-slate-600 text-base md:text-lg">
-            Veja como donos de vape shops escalaram suas operações com o LojaPod.
+            Veja como donos de vape shops escalaram suas operações com o Podipedir.
           </p>
         </div>
 

@@ -15,7 +15,7 @@ const offers = [
   {
     title: "Catálogo do cliente",
     label: "Venda online",
-    desc: "Seu cliente escolhe sabores, monta o pedido e envia pelo WhatsApp. O pedido cai direto no painel.",
+    desc: "Seu cliente escolhe os produtos, monta o pedido e envia pelo WhatsApp. O pedido cai direto no painel.",
     color: "var(--lp-mint)",
   },
   {

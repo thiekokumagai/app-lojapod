@@ -111,7 +111,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           </div>
 
           <DialogTitle className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-            {createdStore ? "Sua Loja Está Pronta!" : "Criar sua conta no LojaPOD"}
+            {createdStore ? "Sua Loja Está Pronta!" : "Criar sua conta no Podipedir"}
           </DialogTitle>
 
           <DialogDescription className="text-xs text-white/90 leading-relaxed mt-1">
@@ -133,7 +133,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <div className="relative">
                   <Input
                     id="title"
-                    placeholder="Ex: Minha Loja Pod"
+                    placeholder="Ex: Minha Loja"
                     value={title}
                     onChange={handleTitleChange}
                     required

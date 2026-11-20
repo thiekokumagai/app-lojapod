@@ -106,7 +106,7 @@ export const EcosystemShowcase: React.FC = () => {
                   <div className="rounded-[2rem] sm:rounded-[2.4rem] overflow-hidden bg-white relative">
                     <img 
                       src="/images/real_system_storefront.png" 
-                      alt="LojaPod no Celular" 
+                      alt="Podipedir no Celular" 
                       className="w-full h-auto object-cover max-h-[460px] group-hover:scale-105 transition-transform duration-500"
                     />
                     {/* Home Indicator Bar */}
@@ -150,7 +150,7 @@ export const EcosystemShowcase: React.FC = () => {
               <div className="lg:col-span-6 border border-slate-200 rounded-2xl overflow-hidden shadow-lg group">
                 <img 
                   src="/images/admin_dashboard.png" 
-                  alt="Painel Administrativo LojaPod SaaS"
+                  alt="Painel Administrativo Podipedir SaaS"
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
               </div>
@@ -190,7 +190,7 @@ export const EcosystemShowcase: React.FC = () => {
               <div className="lg:col-span-6 relative border border-slate-200 rounded-2xl overflow-hidden shadow-xl group bg-slate-900">
                 <img 
                   src="/images/motoboy_route_map.png" 
-                  alt="Rota Multi-pedidos Google Maps para Motoboy no LojaPod"
+                  alt="Rota Multi-pedidos Google Maps para Motoboy no Podipedir"
                   className="w-full h-auto max-h-[460px] object-cover group-hover:scale-105 transition-transform duration-500 mx-auto" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-4">

@@ -13,9 +13,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => (
     <div className="lp-container">
       <div className="grid gap-16 md:grid-cols-[0.8fr_1.2fr] md:gap-[clamp(56px,8vw,112px)]">
         <div>
-          <img src="/images/logo.png" alt="LojaPod" className="h-11 w-auto object-contain" />
+          <img src="/images/logo.png" alt="Podipedir" className="h-11 w-auto object-contain" />
           <p className="mt-5 max-w-sm leading-relaxed text-[var(--lp-text-2)]">
-            Sistema de gestão para lojas, vapes, pods e tabacarias. Vendas, estoque, caixa, catálogo no WhatsApp, entregas
+            Sistema de gestão para lojas, restaurantes, delivery e vape shops. Vendas, estoque, caixa, catálogo no WhatsApp, entregas
             e impressão automática. Simples e inteligente.
           </p>
           <button type="button" onClick={() => onOpenCheckout("mensal")} className="lp-btn lp-btn-sm lp-btn-primary mt-6">
@@ -65,7 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckout }) => (
       </div>
 
       <div className="mt-16 flex flex-col gap-3 border-t border-white/[0.06] pt-8 text-xs text-[var(--lp-muted)] sm:flex-row sm:items-center sm:justify-between">
-        <span>© {new Date().getFullYear()} LojaPod. Todos os direitos reservados.</span>
+        <span>© {new Date().getFullYear()} Podipedir. Todos os direitos reservados.</span>
         <span>Use no computador, celular e tablet</span>
       </div>
     </div>

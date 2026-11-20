@@ -102,14 +102,14 @@ export const Comparison: React.FC = () => {
                     <div className="p-2.5 rounded-xl bg-red-50/70 border border-red-200 text-slate-700 flex items-start gap-2">
                       <XCircle className="h-4 w-4 text-red-500 shrink-0 mt-0.5" />
                       <div>
-                        <div className="text-[10px] text-red-600 font-bold uppercase">Sem LojaPod:</div>
+                        <div className="text-[10px] text-red-600 font-bold uppercase">Sem Podipedir:</div>
                         <div>{item.without}</div>
                       </div>
                     </div>
                     <div className="p-2.5 rounded-xl bg-emerald-50/80 border border-emerald-200 text-emerald-900 font-medium flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                       <div>
-                        <div className="text-[10px] text-emerald-700 font-extrabold uppercase">Com LojaPod Pro:</div>
+                        <div className="text-[10px] text-emerald-700 font-extrabold uppercase">Com Podipedir Pro:</div>
                         <div>{item.with}</div>
                       </div>
                     </div>

@@ -3,9 +3,9 @@ import { BarChart3, BellRing, Globe, Image, ListPlus, Ticket, Upload } from "luc
 import { LoyaltyCard } from "@/components/LoyaltyCard";
 
 const comboItems = [
-  { name: "Pod Menta Ice", price: "R$ 89,90" },
-  { name: "Juice Uva 30ml", price: "R$ 59,90" },
-  { name: "Essência Melancia", price: "R$ 39,90" },
+  { name: "Pizza Grande", price: "R$ 89,90" },
+  { name: "Porção de Fritas", price: "R$ 59,90" },
+  { name: "Refrigerante 2L", price: "R$ 39,90" },
 ];
 
 const extras = [
@@ -41,7 +41,7 @@ export const GrowthFeatures: React.FC = () => (
             <div className="flex items-center gap-3 rounded-2xl border border-white/[0.08] bg-[#1a1a1a] p-3 text-[13px]">
               <span className="h-10 w-10 shrink-0 rounded-xl bg-white/[0.06]" />
               <span className="min-w-0 flex-1">
-                <span className="block font-medium">Pod Mango Ice</span>
+                <span className="block font-medium">Tênis Runner · 42</span>
                 <span className="block text-[var(--lp-muted)]">Esgotado</span>
               </span>
               <span className="rounded-full bg-[var(--lp-light)] px-3 py-1.5 text-xs font-medium text-[#141414]">Me avise</span>
@@ -51,7 +51,7 @@ export const GrowthFeatures: React.FC = () => (
                 <BellRing className="h-4 w-4" />
               </span>
               <span>
-                <span className="block font-medium">Chegou! Pod Mango Ice</span>
+                <span className="block font-medium">Chegou! Tênis Runner · 42</span>
                 <span className="block text-[var(--lp-text-2)]">Toque para garantir o seu antes que acabe.</span>
               </span>
             </div>

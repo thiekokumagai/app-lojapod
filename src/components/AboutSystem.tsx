@@ -13,7 +13,7 @@ const nodes = [
 
 const steps = [
   { title: "Crie sua conta", desc: "Cadastro em menos de 2 minutos, pelo celular ou computador." },
-  { title: "Cadastre os produtos", desc: "Produtos, sabores, preços e estoque de forma rápida." },
+  { title: "Cadastre os produtos", desc: "Produtos, variações, preços e estoque de forma rápida." },
   { title: "Configure a operação", desc: "Pagamentos, entregas, motoboys e preferências da loja." },
   { title: "Comece a vender", desc: "Sua equipe registra vendas e acompanha tudo em um só lugar." },
 ];

@@ -59,7 +59,7 @@ export const BusinessExperience: React.FC<BusinessExperienceProps> = ({ onOpenCh
             DO BALCÃO AO ATACADO, <span className="text-red-600">SUA OPERAÇÃO CONECTADA</span>
           </h2>
           <p className="text-slate-600 font-mono text-sm sm:text-base">
-            Selecione o formato do seu negócio e descubra como o LojaPod acelera seu faturamento.
+            Selecione o formato do seu negócio e descubra como o Podipedir acelera seu faturamento.
           </p>
         </div>
 

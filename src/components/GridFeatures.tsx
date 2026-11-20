@@ -5,7 +5,7 @@ import { CatalogThemes } from "@/components/CatalogThemes";
 const payments = ["Pix", "Cartão de crédito", "Cartão de débito", "Dinheiro", "Pedido no WhatsApp", "Venda no balcão"];
 
 const orderFeed = [
-  { who: "Balcão", time: "9:12", text: "Venda #1048 · 2 pods + 1 essência", tone: "var(--lp-mint)" },
+  { who: "Balcão", time: "9:12", text: "Venda #1048 · 3 itens", tone: "var(--lp-mint)" },
   { who: "Estoque", time: "9:12", text: "Baixa automática de 3 itens", tone: "var(--lp-lilac)", system: true },
   { who: "Caixa", time: "9:13", text: "Entrada de R$ 289,90 no Pix", tone: "var(--lp-gold)" },
   { who: "Impressora", time: "9:13", text: "Comprovante impresso (80mm)", tone: "var(--lp-sky)" },
@@ -35,7 +35,7 @@ export const GridFeatures: React.FC = () => (
   <section id="recursos" className="py-[clamp(64px,8vw,120px)]">
     <div className="lp-container">
       <div className="lp-heading">
-        <h2>O que o LojaPod faz</h2>
+        <h2>O que o Podipedir faz</h2>
         <p>Um sistema para a loja inteira: do balcão à entrega, pelo celular ou computador. Menos planilha, mais tempo para vender.</p>
       </div>
 
@@ -92,14 +92,14 @@ export const GridFeatures: React.FC = () => (
 
         {/* Estoque */}
         <li className="lp-card min-h-[300px] md:col-span-3 xl:col-span-5">
-          <Copy title="Estoque por sabor e variante">
-            Saldo em tempo real de pods, juices e essências. Saiba o que está acabando antes de faltar.
+          <Copy title="Estoque por produto e variação">
+            Saldo em tempo real de cada produto, tamanho, cor ou sabor. Saiba o que está acabando antes de faltar.
           </Copy>
           <div className="mt-auto space-y-2.5 p-7 pt-8 sm:p-9 sm:pt-8">
             {[
-              ["Pod Menta Ice", 82, "var(--lp-mint)"],
-              ["Juice Uva 30ml", 46, "var(--lp-lilac)"],
-              ["Essência Melancia", 14, "var(--lp-gold)"],
+              ["Camiseta Básica · M", 82, "var(--lp-mint)"],
+              ["Pão de Hambúrguer", 46, "var(--lp-lilac)"],
+              ["Pod Descartável · Menta", 14, "var(--lp-gold)"],
             ].map(([name, pct, color]) => (
               <div key={name as string} className="text-[13px]">
                 <div className="mb-1 flex justify-between">
@@ -147,7 +147,7 @@ export const GridFeatures: React.FC = () => (
               <div className="w-full max-w-[240px] rounded-[26px] border border-white/10 bg-[#1a1a1a] p-4 text-center text-[13px]">
                 <div className="mx-auto h-12 w-12 rounded-full bg-gradient-to-br from-[#8bd43a] to-[#27a768]" />
                 <div className="mt-2 font-medium">@sualoja</div>
-                <div className="text-[11px] text-[var(--lp-muted)]">Pods, juices e acessórios</div>
+                <div className="text-[11px] text-[var(--lp-muted)]">Cardápio, produtos e novidades</div>
                 <div className="mt-4 space-y-2">
                   {["Ver catálogo", "Pedir no WhatsApp", "Promoções da semana"].map((l, i) => (
                     <div key={l} className={`rounded-full py-2 ${i === 0 ? "bg-[var(--lp-light)] font-medium text-[#141414]" : "border border-white/10"}`}>
@@ -168,12 +168,12 @@ export const GridFeatures: React.FC = () => (
           <div className="mt-auto flex justify-center px-7 pt-8 sm:px-9">
             <div className="w-full max-w-[220px] rounded-t-lg bg-[var(--lp-light)] p-4 font-mono text-[11px] leading-relaxed text-[#141414] shadow-[0_-20px_60px_-20px_rgba(139,212,58,.35)]">
               <div className="flex items-center justify-between font-semibold">
-                <span>LOJAPOD</span>
+                <span>SUA LOJA</span>
                 <Printer className="h-3.5 w-3.5" />
               </div>
               <div className="my-2 border-t border-dashed border-[#141414]/30" />
-              <div className="flex justify-between"><span>2x Pod Menta</span><span>179,80</span></div>
-              <div className="flex justify-between"><span>1x Essência</span><span>110,10</span></div>
+              <div className="flex justify-between"><span>2x Produto A</span><span>179,80</span></div>
+              <div className="flex justify-between"><span>1x Produto B</span><span>110,10</span></div>
               <div className="my-2 border-t border-dashed border-[#141414]/30" />
               <div className="flex justify-between font-semibold"><span>TOTAL</span><span>R$ 289,90</span></div>
               <div className="mt-1 text-[#141414]/60">Pix · Venda #1048</div>

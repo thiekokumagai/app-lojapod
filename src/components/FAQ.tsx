@@ -4,8 +4,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export const FAQ: React.FC = () => {
   const faqItems = [
     {
-      q: "Como funciona o Sistema de Gestão do LojaPOD?",
-      a: "O LojaPOD reúne catálogo online por sabores, pedidos no WhatsApp, PDV de balcão, Comprovantes & Impressão automática, gestão de motoboys com rotas no mapa, contas a pagar e módulo de investimentos em uma só plataforma simples e inteligente."
+      q: "Como funciona o Sistema de Gestão do Podipedir?",
+      a: "O Podipedir reúne catálogo online, pedidos no WhatsApp, PDV de balcão, Comprovantes & Impressão automática, gestão de motoboys com rotas no mapa, contas a pagar e módulo de investimentos em uma só plataforma simples e inteligente."
     },
     {
       q: "Como funciona o cadastro e financeiro do Motoboy?",
@@ -13,11 +13,11 @@ export const FAQ: React.FC = () => {
     },
     {
       q: "O sistema possui controle de Contas a Pagar e Investimentos?",
-      a: "Sim! O LojaPOD conta com módulo exclusivo de Contas a Pagar (despesas fixas, boletos e fornecedores) e Módulo de Investimentos (controle de capital aportado por sócios e acompanhamento do retorno ROI)."
+      a: "Sim! O Podipedir conta com módulo exclusivo de Contas a Pagar (despesas fixas, boletos e fornecedores) e Módulo de Investimentos (controle de capital aportado por sócios e acompanhamento do retorno ROI)."
     },
     {
       q: "Posso criar um Link para a Bio do meu Instagram?",
-      a: "Com certeza! O LojaPOD gera uma página de links personalizada para colocar na bio do Instagram da sua loja, onde os clientes acessam o catálogo, WhatsApp e redes sociais com máxima taxa de conversão."
+      a: "Com certeza! O Podipedir gera uma página de links personalizada para colocar na bio do Instagram da sua loja, onde os clientes acessam o catálogo, WhatsApp e redes sociais com máxima taxa de conversão."
     },
     {
       q: "Como funciona o Cartão Fidelidade?",
@@ -41,7 +41,7 @@ export const FAQ: React.FC = () => {
     },
     {
       q: "É possível usar o Sistema de Gestão em vários dispositivos?",
-      a: "Sim! Você e sua equipe podem acessar o LojaPOD ao mesmo tempo pelo celular, tablet ou computador de qualquer lugar."
+      a: "Sim! Você e sua equipe podem acessar o Podipedir ao mesmo tempo pelo celular, tablet ou computador de qualquer lugar."
     },
     {
       q: "Posso experimentar o Sistema antes de comprar?",

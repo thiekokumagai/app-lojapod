@@ -26,7 +26,7 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenCheckout }) 
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold font-space text-slate-900 leading-tight">
-            Calcule quanto sua loja vai faturar a mais com o <span className="text-gradient-emerald">LojaPod</span>
+            Calcule quanto sua loja vai faturar a mais com o <span className="text-gradient-emerald">Podipedir</span>
           </h2>
 
           <p className="text-slate-600 text-base md:text-lg">
